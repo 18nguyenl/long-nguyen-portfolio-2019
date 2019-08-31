@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => (
         width: 100%;
         height: 20%;
 
-        overflow-x: hidden;
+        overflow: hidden;
       `}>
         <h1 css={css`
           ${glitchYellow}
@@ -82,6 +82,7 @@ const IndexPage = ({ data }) => (
       
       ${glitchWhite}
 
+      padding: 3rem 1.5rem;
     `}>
       <h2 css={css`
         ${glitchYellow}
@@ -89,11 +90,18 @@ const IndexPage = ({ data }) => (
       <p>Hi! I’m Long Nguyen, a sophomore front-end developer at the University of Texas, Arlington. I specialize in website, UI/UX design, and graphics development. As a student, I am excited to learn to make some killer apps!</p>
       <p>My skillset for web development include making static sites, implementing CMS’s, and using front-end frameworks like React. For my creative development abilities, I know GLSL, webGL, and openGL for creative graphics programming. I primarily use Figma for my UX Design.</p>
       
-      <h2>WORK WITH ME</h2>
-      <p>While my official work is with Zeal IT Conslutants, I am available for a project on the side. Feel free to reach out!. I hope we make something cool!</p>
+      <Image src="edgy_picture.jpg"/>
+
+      <h2 css={css`
+        ${glitchYellow}
+      `}>WORK WITH ME</h2>
+      <p css={css`
+        margin-bottom: 1.5rem;
+      `}
+      >While my official work is with Zeal IT Conslutants, I am available for a project on the side. Feel free to reach out!. I hope we make something cool!</p>
 
       <div>
-        <a>18nguyenl@gmail.com</a>
+        <a href="mailto:18nguyenl@gmail.com">18nguyenl@gmail.com</a>
       </div>
       <div>
         <a>resume</a>

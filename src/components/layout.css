@@ -7,8 +7,11 @@
   box-sizing: border-box;
 
   font-family: 'Termina', sans-serif;
-  font-size: 18px;
   line-height: 1.5;
+}
+
+html {
+  font-size: 18px;
 }
 
 /* Text Element Styling */
@@ -38,9 +41,17 @@ button {
   box-shadow: none;
   border: none;
   outline: none;
+
+  font-size: 18px;
 }
 
 /* Container styling */
 section {
   padding: 1.5rem;
+}
+
+@media only screen and (min-width: 425px) {
+  p {
+    font-size: 18px;
+  }
 }
