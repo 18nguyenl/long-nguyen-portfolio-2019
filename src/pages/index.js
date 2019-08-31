@@ -6,37 +6,10 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+import * as settingCSS from "../components/settings.css"
+
 import LongGlitch from '../images/Long Glitch.jpg'
 
-// Color CSS
-let glitchYellow = css`
-  color: #FFFF40;
-`
-
-let glitchBlue = css`
-  color: #5826FF;
-`
-
-let glitchRed = css`
-  color: #FF392F;
-`
-
-let glitchWhite = css`
-  color: #FFFFFF;
-`
-
-let glitchBlack = css`
-  color: #1C1C1C;
-`
-
-// Typographic styles
-let heroHeaderMobile = css`
-  position: relative;
-  
-  font-weight: 900;
-  font-size: 2.25rem;
-  line-height: 1.2;
-`
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
@@ -61,31 +34,40 @@ const IndexPage = ({ data }) => (
         overflow: hidden;
       `}>
         <h1 css={css`
-          ${glitchYellow}
-          ${heroHeaderMobile}
+          ${settingCSS.glitchYellow}
+          ${settingCSS.heroHeaderMobile}
+          
           left: -5%;
+
+          margin-bottom: 0;
         `}>ENERGETIC</h1>
         <h1 css={css`
-          ${glitchRed}
-          ${heroHeaderMobile}
+          ${settingCSS.glitchRed}
+          ${settingCSS.heroHeaderMobile}
+          
           left: 20%;
+          
+          margin-bottom: 0;
         `}>PASSIONATE</h1>
         <h1 css={css`
-          ${glitchBlue}
-          ${heroHeaderMobile}
+          ${settingCSS.glitchBlue}
+          ${settingCSS.heroHeaderMobile}
+          
           left: 8%;
+
+          margin-bottom: 0;
         `}>ACTIONABLE</h1>
       </div>
     </section>
     <section css={css`
       background: black;
       
-      ${glitchWhite}
+      ${settingCSS.glitchWhite}
 
       padding: 3rem 1.5rem;
     `}>
       <h2 css={css`
-        ${glitchYellow}
+        ${settingCSS.glitchYellow}
       `}>INTRO</h2>
       <p>Hi! I’m Long Nguyen, a sophomore front-end developer at the University of Texas, Arlington. I specialize in website, UI/UX design, and graphics development. As a student, I am excited to learn to make some killer apps!</p>
       <p>My skillset for web development include making static sites, implementing CMS’s, and using front-end frameworks like React. For my creative development abilities, I know GLSL, webGL, and openGL for creative graphics programming. I primarily use Figma for my UX Design.</p>
@@ -93,7 +75,7 @@ const IndexPage = ({ data }) => (
       <Image src="edgy_picture.jpg"/>
 
       <h2 css={css`
-        ${glitchYellow}
+        ${settingCSS.glitchYellow}
       `}>WORK WITH ME</h2>
       <p css={css`
         margin-bottom: 1.5rem;
@@ -101,16 +83,19 @@ const IndexPage = ({ data }) => (
       >While my official work is with Zeal IT Conslutants, I am available for a project on the side. Feel free to reach out!. I hope we make something cool!</p>
 
       <div>
-        <a href="mailto:18nguyenl@gmail.com">18nguyenl@gmail.com</a>
+        <a css={css`${settingCSS.anchor}`}href="mailto:18nguyenl@gmail.com">18nguyenl@gmail.com</a>
       </div>
       <div>
-        <a>resume</a>
+        <a css={css`${settingCSS.anchor}`}>resume</a>
       </div>
     </section>
     <section>
-      <h2>SELECTED WORKS</h2>
+      <h2 css={css`
+        ${settingCSS.glitchBlue}
+
+        margin-bottom: 1.5rem;
+      `}>SELECTED WORKS</h2>
     </section>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 
