@@ -21,8 +21,14 @@ h6 {
   font-weight: 900;
 }
 
+h2 {
+  margin-bottom: 1.11111rem;
+}
+
 p {
   font-weight: 400;
+
+  margin-bottom: 1.11111rem
 }
 
 /* Button Styling */
@@ -32,4 +38,9 @@ button {
   box-shadow: none;
   border: none;
   outline: none;
+}
+
+/* Container styling */
+section {
+  padding: 1.5rem;
 }
