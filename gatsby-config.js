@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Long Nguyen 2019`,
+    description: `I am Long Nguyen, a goal-driven, steadfast frontend developer.`,
+    author: `Long Nguyen`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,6 +13,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `cases`,
+        path: `${__dirname}/src/cases`,
+      },
+    },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-plugin-emotion`,
       options: {

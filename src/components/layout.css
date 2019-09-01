@@ -50,6 +50,10 @@ p {
   margin-bottom: 1.11111rem
 }
 
+a {
+  line-height: 1.5;
+}
+
 /* Button Styling */
 button {
   background: none;
@@ -68,6 +72,8 @@ section {
 
 footer {
   padding: 0 1.5rem 1.5rem 1.5rem;
+
+  font-size: 12px;
 }
 
 @media only screen and (min-width: 425px) {

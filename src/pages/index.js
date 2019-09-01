@@ -14,8 +14,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <section css={css`
-      height: 100vh;
-      max-height: 667px;
+      height: 667px;
 
       padding: 0;
 
@@ -83,10 +82,10 @@ const IndexPage = ({ data }) => (
       >While my official work is with Zeal IT Conslutants, I am available for a project on the side. Feel free to reach out!. I hope we make something cool!</p>
 
       <div>
-        <a css={css`${settingCSS.anchor}`}href="mailto:18nguyenl@gmail.com">18nguyenl@gmail.com</a>
+        <a css={css`${settingCSS.anchor}`} href="mailto:18nguyenl@gmail.com">18nguyenl@gmail.com</a>
       </div>
       <div>
-        <a css={css`${settingCSS.anchor}`}>resume</a>
+        <a css={css`${settingCSS.anchor}`} href="LongNguyenResume CS.pdf" download>resume</a>
       </div>
     </section>
     <section>
@@ -95,8 +94,56 @@ const IndexPage = ({ data }) => (
 
         margin-bottom: 1.5rem;
       `}>SELECTED WORKS</h2>
+      {data.allMdx.edges.map(({ node }) => (
+        <h3 css={css`
+          color: white;
+          text-shadow:
+          -1px -1px 0 #000,  
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+          transition: color 600ms cubic-bezier(0.115, 0.905, 0.32, 1);
+
+          &:hover {
+            text-shadow: none;
+            
+            ${settingCSS.glitchRed}
+          }
+        `}
+        key={node.id}>
+          {node.frontmatter.title}
+        </h3>
+      ))}
     </section>
+    <div css={css`
+      padding: 0 1.5rem;
+      margin-bottom: 4.5rem;
+
+      font-weight: 900;
+      font-style: normal;
+      font-size: 16.25vw;
+      line-height: 1;
+    `}>
+      Long<br />
+      Nguyen
+    </div>
   </Layout>
 )
+
+export const pageQuery = graphql`
+  query CaseStudies {
+    allMdx {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          body
+          id
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
