@@ -15,7 +15,7 @@ class IndexPage extends Component {
       mainCurtain: null,
       scroll: {
         YBefore: 0,
-        Y: window.scrollY,
+        Y: 0,
         delta: 0,
       },
     }
