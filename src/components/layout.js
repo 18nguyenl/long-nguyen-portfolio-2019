@@ -51,7 +51,7 @@ class Layout extends Component {
     
     return (
       <>
-      {/* <div id="canvas"></div> */}
+      <div id="canvas"></div>
       <Header />
       <main id={this.props.canvasID} curtains={curtains}>{this.props.children}</main>
       <footer>copyright © {new Date().getFullYear()}</footer>
