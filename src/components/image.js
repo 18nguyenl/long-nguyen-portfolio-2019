@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import {Curtains} from 'curtainsjs';
 
-import { TweenMax, Expo } from "gsap"
+import { TweenMax, Expo, Power2, Power3 } from "gsap"
 
 import waveVShader from "../shaders/wave.vert"
 import waveFShader from "../shaders/wave.frag"
@@ -86,16 +86,30 @@ export default class Image extends Component {
           let scrollBefore = window.scrollY;
           let scrollY = window.scrollY;
           let deltaY = 0;
+          let isAnimating = false;
 
           if (this._planes) {
             this._planes.onRender(function() {
               scrollY = window.scrollY;
+              
               deltaY = scrollY - scrollBefore;
+              // if (deltaY > 120) {
+              //   deltaY = 120;
+              // } else if (deltaY < -120)
+              //   deltaY = -120
+
               scrollBefore = scrollY;
 
               this.uniforms.time.value++;
-              this.uniforms.power.value = deltaY;
               
+              TweenMax.to(this.uniforms.power, 0.1, { value: deltaY, ease: Power3.easeInOut, onComplete: () => {
+                isAnimating = false;
+              }})
+              if (!isAnimating) {
+                isAnimating = true;
+                
+              }
+
               planes.updatePosition();
             });
           }

@@ -20,9 +20,9 @@ varying vec2 vTextureCoord;
 void main() {
     vec3 vertexPosition = aVertexPosition;
 
-    float rippleEffect = 0.1 * pow(vertexPosition.x, 2.0) * (uTime / 20.0) * uPower / 20.0;
+    float rippleEffect = -0.1 * sin(vertexPosition.x) * (uPower / 50.0);
       // vertexPosition.x += rippleEffect / 20.0;
-      vertexPosition.y += rippleEffect / 30.0 - uPower / 150.0;
+      vertexPosition.y += rippleEffect - (uPower / 200.0);
 
     gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
 
