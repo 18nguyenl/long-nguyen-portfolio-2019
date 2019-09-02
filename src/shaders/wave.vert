@@ -22,7 +22,7 @@ void main() {
 
     float rippleEffect = -0.1 * sin(vertexPosition.x) * (uPower / 50.0);
       // vertexPosition.x += rippleEffect / 20.0;
-      vertexPosition.y += rippleEffect - (uPower / 200.0);
+      vertexPosition.y += rippleEffect - (uPower / 300.0);
 
     gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
 

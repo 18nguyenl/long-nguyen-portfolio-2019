@@ -128,8 +128,10 @@ export default class Image extends Component {
         className="plane"
         css={css`
           margin-bottom: 1.89rem;
-
+          
           height: 100%;
+
+          ${this.props.ocss}
         `}
       >
         <img

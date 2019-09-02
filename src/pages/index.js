@@ -50,7 +50,8 @@ class IndexPage extends Component {
         <SEO title="Home" />
         <section
           css={css`
-            height: 667px;
+            height: auto;
+            max-height: 667px;
   
             padding: 0;
 
@@ -108,11 +109,7 @@ class IndexPage extends Component {
             </h1>
           </div>
           <Image
-            css={css`
-              position: absolute;
-              z-index: 0;
-              top: 0;
-  
+            ocss={css`
               margin-bottom: 0px;
   
               object-fit: cover;
