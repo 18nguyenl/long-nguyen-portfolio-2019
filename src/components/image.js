@@ -5,6 +5,8 @@ import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import {Curtains} from 'curtainsjs';
 
+import { TweenMax, Expo } from "gsap"
+
 import waveVShader from "../shaders/wave.vert"
 import waveFShader from "../shaders/wave.frag"
 
@@ -32,6 +34,11 @@ const planeParams = {
       type: "1f", // this means our uniform is a float
       value: 0,
     },
+    power: {
+      name: "uPower",
+      type: "1f",
+      value: 0,
+    }
   }
 };
 
@@ -40,10 +47,10 @@ export default class Image extends Component {
     super(props);
 
     this._planes = null;
+    this.scroll = this.props.scroll;
   }
   
   componentDidMount() {
-    
     this.registerPlaneElement()
       // if we got our curtains object, create the plane
       this.props.curtains && this.createPlanes(this.props.curtains);
@@ -71,9 +78,23 @@ export default class Image extends Component {
       if(curtains) {
           this._planes = curtains.addPlane(this.planeElement, planeParams);
           let planes = this._planes;
+
+          function getScrollInfo () {
+            return this.props.scroll;
+          }
+
+          let scrollBefore = window.scrollY;
+          let scrollY = window.scrollY;
+          let deltaY = 0;
+
           if (this._planes) {
             this._planes.onRender(function() {
+              scrollY = window.scrollY;
+              deltaY = scrollY - scrollBefore;
+              scrollBefore = scrollY;
+
               this.uniforms.time.value++;
+              this.uniforms.power.value = deltaY;
               
               planes.updatePosition();
             });
@@ -101,6 +122,7 @@ export default class Image extends Component {
           css={css`
             visibility: hidden;
             object-fit: cover;
+            overflow: visible;
 
             width: 100%;
             height: 100%;

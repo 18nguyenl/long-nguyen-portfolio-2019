@@ -13,10 +13,30 @@ class IndexPage extends Component {
     super(props);
     this.state = {
       mainCurtain: null,
+      scroll: {
+        YBefore: 0,
+        Y: window.scrollY,
+        delta: 0,
+      },
     }
 
-    this._planes = [];
     this.getCurtains = this.getCurtains.bind(this);
+
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount = () => {
+    window.onscroll = this.handleScroll;
+  }
+
+  handleScroll = function() {
+    this.setState({
+      scroll: {
+        YBefore: this.state.scroll.Y,
+        Y: window.scrollY,
+        delta: window.scrollY - this.state.scroll.YBefore,
+      }
+    })
   }
 
   getCurtains (curtains) {
@@ -24,6 +44,7 @@ class IndexPage extends Component {
   }
   
   render() {
+    // console.log(this.state.scroll.delta)
     return (
       <Layout getCurtains={this.getCurtains}>
         <SEO title="Home" />
@@ -32,6 +53,8 @@ class IndexPage extends Component {
             height: 667px;
   
             padding: 0;
+
+            background: linear-gradient(180deg, transparent 50%, black 50%);;
           `}
         >
           <div
@@ -97,6 +120,7 @@ class IndexPage extends Component {
             `}
             src="Long Glitch.jpg"
             curtains={this.state.mainCurtain}
+            scroll={this.state.scroll}
           />
         </section>
         <section
@@ -136,6 +160,7 @@ class IndexPage extends Component {
             `}
             src="edgy picture.jpg" 
             curtains={this.state.mainCurtain}
+            scroll={this.state.scroll}
           />
   
           <h2

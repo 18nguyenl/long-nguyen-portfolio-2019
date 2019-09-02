@@ -29,7 +29,6 @@ class Layout extends Component {
   
   componentDidMount() {
     let curtains = new Curtains("canvas");
-    console.log(curtains.glCanvas)
 
     this.setState({ curtains: curtains }, () => {
       this.props.getCurtains(this.state.curtains);

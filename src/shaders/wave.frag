@@ -22,15 +22,15 @@ void main() {
     // reminder : textures coords are ranging from 0.0 to 1.0 on both axis
     const float PI = 3.141592;
 
-    textureCoord.x += (
-        sin(textureCoord.x * 10.0 + ((uTime * (PI / 3.0)) * 0.031))
-        + sin(textureCoord.y * 10.0 + ((uTime * (PI / 2.489)) * 0.017))
-        ) * 0.0075;
+    // textureCoord.x += (
+    //     sin(textureCoord.x * 10.0 + ((uTime * (PI / 3.0)) * 0.031))
+    //     + sin(textureCoord.y * 10.0 + ((uTime * (PI / 2.489)) * 0.017))
+    //     ) * 0.0075;
 
-    textureCoord.y += (
-        sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
-        + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
-        ) * 0.0125;
+    // textureCoord.y += (
+    //     sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
+    //     + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
+    //     ) * 0.0125;
 
     gl_FragColor = texture2D(uSampler0, textureCoord);
 }
