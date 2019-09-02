@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { css } from "@emotion/core"
 import {Curtains} from 'curtainsjs';
@@ -23,6 +23,7 @@ import waveFShader from "../shaders/wave.frag"
 const planeParams = {
   widthSegments: 20,
   heightSegments: 20,
+  alwaysDraw: true,
   vertexShader: waveVShader, // our vertex shader ID
   fragmentShader: waveFShader, // our framgent shader ID
   uniforms: {
@@ -34,64 +35,26 @@ const planeParams = {
   }
 };
 
-function renderImage(file, ref) {
-  return (
-  <>
-    <Img 
-    className="plane"
-    css={css`
-      margin-bottom: 1.89rem;
-    `}
-    ref={ref}
-    fluid={file.node.childImageSharp.fluid}
-    />
-  </>
-  )
-}
-
-let FluidImage = React.forwardRef((props, ref) => {
-  return <StaticQuery
-    query={graphql`
-      query {
-      images: allFile(filter:{ extension: { regex: "/jpeg|jpg|png|gif/"}}) {
-      edges {
-        node {
-          extension
-          relativePath
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    }
-    `}
-    render={({ images }) => renderImage(images.edges.find(image => image.node.relativePath === props.src), ref)}
-  />
-})
-
 export default class Image extends Component {
   constructor( props ) {
     super(props);
-
-    this.ref = React.createRef();
 
     this._planes = null;
   }
   
   componentDidMount() {
+    
     this.registerPlaneElement()
       // if we got our curtains object, create the plane
       this.props.curtains && this.createPlanes(this.props.curtains);
   }
   
-  componentWillUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     // if we haven't got our curtains object before but got it now, create the plane
     if(!this.props.curtains && nextProps.curtains) {
         this.createPlanes(nextProps.curtains);
-    }
+        return true 
+    } else return false
   }
 
   
@@ -107,10 +70,14 @@ export default class Image extends Component {
       // create our plane
       if(curtains) {
           this._planes = curtains.addPlane(this.planeElement, planeParams);
-
-          this._planes.onRender(function() {
+          let planes = this._planes;
+          if (this._planes) {
+            this._planes.onRender(function() {
               this.uniforms.time.value++;
-          });
+              
+              planes.updatePosition();
+            });
+          }
       }
   }
   
@@ -122,11 +89,26 @@ export default class Image extends Component {
 
   render() {
     return (
-    <FluidImage
-      className="plane"
-      ref={this.ref}
-      src={this.props.src}
-    />
+      <div
+        className="plane"
+        css={css`
+          margin-bottom: 1.89rem;
+
+          height: 100%;
+        `}
+      >
+        <img
+          css={css`
+            visibility: hidden;
+            object-fit: cover;
+
+            width: 100%;
+            height: 100%;
+          `}
+          src={`./images/${this.props.src}`}
+          data-sampler="uSampler0"
+        />
+      </div>
     )
   }
 } 

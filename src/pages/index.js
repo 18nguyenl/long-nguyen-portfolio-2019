@@ -8,8 +8,6 @@ import SEO from "../components/seo"
 
 import * as settingCSS from "../components/settings.css"
 
-import LongGlitch from "../images/Long Glitch.jpg"
-
 class IndexPage extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +15,7 @@ class IndexPage extends Component {
       mainCurtain: null,
     }
 
+    this._planes = [];
     this.getCurtains = this.getCurtains.bind(this);
   }
 
@@ -25,7 +24,6 @@ class IndexPage extends Component {
   }
   
   render() {
-    let curtains = this.state.mainCurtain;
     return (
       <Layout getCurtains={this.getCurtains}>
         <SEO title="Home" />
@@ -108,6 +106,8 @@ class IndexPage extends Component {
             ${settingCSS.glitchWhite}
   
             padding: 3rem 1.5rem;
+
+            opacity: 1;
           `}
         >
           <h2
@@ -131,7 +131,10 @@ class IndexPage extends Component {
           </p>
   
           <Image 
-            src="edgy_picture.jpg" 
+            css={css`
+              /* height: 500px; */
+            `}
+            src="edgy picture.jpg" 
             curtains={this.state.mainCurtain}
           />
   
@@ -234,6 +237,14 @@ export const pageQuery = graphql`
           }
           body
           id
+        }
+      }
+    }
+    images: allFile(filter: { extension: { regex: "/jpeg|jpg|png|gif/" } }) {
+      edges {
+        node {
+          extension
+          relativePath
         }
       }
     }

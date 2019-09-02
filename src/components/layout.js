@@ -8,25 +8,12 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { css } from "@emotion/core"
 
 import Header from "./header"
 import "./layout.css"
 
 import {Curtains} from 'curtainsjs';
-
-// let planeElement = document.getElementsByClassName("plane")
-
-// let planes = Array.from(planeElement).map((e) => {
-//     curtains.addPlane(e, planeParams);
-// })
-
-// // if our plane has been successfully created
-// if(planes[0]) {
-//     planes[0].onRender(function() {
-//     // use the onRender method of our plane fired at each requestAnimationFrame call
-//     planes[0].uniforms.time.value++; // update our time uniform value
-//     });
-// }
 
 class Layout extends Component {
   constructor(props) {
@@ -42,21 +29,38 @@ class Layout extends Component {
   
   componentDidMount() {
     let curtains = new Curtains("canvas");
-    this.setState({ curtains: curtains });
-    this.props.getCurtains(curtains);
+    console.log(curtains.glCanvas)
+
+    this.setState({ curtains: curtains }, () => {
+      this.props.getCurtains(this.state.curtains);
+    });
   }
-  
+
   render() {
     let curtains = this.state.curtains;
     
     return (
-      <>
-      <div id="canvas"></div>
-      <Header />
-      <main id={this.props.canvasID} curtains={curtains}>{this.props.children}</main>
-      <footer>copyright © {new Date().getFullYear()}</footer>
-      </>
-      )
+      <div id="page-wrap"
+        css={css`
+          position: relative;
+        `}
+      >
+        <div id="canvas"></div>
+        <div id="content"
+          css={css`
+            position: relative;
+
+            z-index: 15;
+          `}
+        >
+          <Header />
+          <main id={this.props.canvasID} curtains={this.state.curtains}>
+            {this.props.children}
+          </main>
+          <footer>copyright © {new Date().getFullYear()}</footer>
+        </div>
+      </div>
+    )
     }
   } 
   
