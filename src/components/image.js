@@ -93,10 +93,10 @@ export default class Image extends Component {
               scrollY = window.scrollY;
               
               deltaY = scrollY - scrollBefore;
-              // if (deltaY > 120) {
-              //   deltaY = 120;
-              // } else if (deltaY < -120)
-              //   deltaY = -120
+              if (deltaY > 15) {
+                deltaY = 15;
+              } else if (deltaY < -15)
+                deltaY = -15
 
               scrollBefore = scrollY;
 
@@ -107,7 +107,6 @@ export default class Image extends Component {
               }})
               if (!isAnimating) {
                 isAnimating = true;
-                
               }
 
               planes.updatePosition();
