@@ -8,6 +8,7 @@ varying vec2 vTextureCoord;
 
 // the uniform we declared inside our javascript
 uniform float uTime;
+uniform float uPower;
 
 // our texture sampler (default name, to use a different name please refer to the documentation)
 uniform sampler2D uSampler0;
@@ -32,5 +33,14 @@ void main() {
     //     + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
     //     ) * 0.0125;
 
-    gl_FragColor = texture2D(uSampler0, textureCoord);
+    vec2 red_channel = textureCoord;
+    vec2 green_channel = textureCoord;
+    vec2 blue_channel = textureCoord;
+
+    red_channel.y += uPower * 0.004;
+    blue_channel.y -= uPower * 0.003;
+
+    vec3 channel_shift = vec3(texture2D(uSampler0, red_channel).r, texture2D(uSampler0, green_channel).g, texture2D(uSampler0, blue_channel).b);
+
+    gl_FragColor = vec4(channel_shift, 1.0);
 }
