@@ -127,8 +127,13 @@ export default class Image extends Component {
         className="plane"
         css={css`
           margin-bottom: 1.89rem;
-          
+
           height: 100%;
+          max-height: 667px;
+
+          @media only screen and (min-width: 425px) {
+            max-height: 1024px;
+          }
 
           ${this.props.ocss}
         `}
@@ -137,10 +142,15 @@ export default class Image extends Component {
           css={css`
             visibility: hidden;
             object-fit: cover;
-            overflow: visible;
 
             width: 100%;
             height: 100%;
+            max-height: 667px;
+
+            @media only screen and (min-width: 425px) {
+              max-height: 1024px;
+              object-fit: contain;
+            }
           `}
           src={`./images/${this.props.src}`}
           data-sampler="uSampler0"
