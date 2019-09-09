@@ -93,10 +93,10 @@ export default class Image extends Component {
               scrollY = window.scrollY;
               
               deltaY = scrollY - scrollBefore;
-              if (deltaY > 15) {
-                deltaY = 15;
-              } else if (deltaY < -15)
-                deltaY = -15
+              if (deltaY > 30) {
+                deltaY = 30;
+              } else if (deltaY < -30)
+                deltaY = -30
 
               scrollBefore = scrollY;
 
