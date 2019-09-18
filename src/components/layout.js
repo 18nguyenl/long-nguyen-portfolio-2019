@@ -13,6 +13,8 @@ import { css } from "@emotion/core"
 import Header from "./header"
 import "./layout.css"
 
+import * as settingCSS from "../components/settings.css"
+
 import {Curtains} from 'curtainsjs';
 
 class Layout extends Component {
@@ -49,7 +51,7 @@ class Layout extends Component {
           css={css`
             position: relative;
 
-            z-index: 15;
+            z-index: 17;
           `}
         >
           <Header />

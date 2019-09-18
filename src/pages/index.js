@@ -108,8 +108,6 @@ class IndexPage extends Component {
 
               padding: 0;
 
-              background: linear-gradient(180deg, transparent 50%, black 50%);
-
               @media only screen and (min-width: 425px) {
                 max-height: 1024px;
               }
@@ -129,8 +127,6 @@ class IndexPage extends Component {
           </section>
           <section
             css={css`
-              background: black;
-
               ${settingCSS.glitchWhite}
 
               padding: 3rem 1.5rem;
@@ -144,7 +140,7 @@ class IndexPage extends Component {
           >
             <h2
               css={css`
-                ${settingCSS.glitchYellow}
+                ${settingCSS.glitchRed}
               `}
             >
               INTRO
