@@ -1,6 +1,6 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
+import { Global, css } from "@emotion/core"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -10,7 +10,7 @@ import * as settingCSS from "../components/settings.css"
 
 class IndexPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       mainCurtain: null,
       scroll: {
@@ -20,13 +20,13 @@ class IndexPage extends Component {
       },
     }
 
-    this.getCurtains = this.getCurtains.bind(this);
+    this.getCurtains = this.getCurtains.bind(this)
 
-    this.handleScroll = this.handleScroll.bind(this);
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
   componentDidMount = () => {
-    window.onscroll = this.handleScroll;
+    window.onscroll = this.handleScroll
   }
 
   handleScroll = function() {
@@ -35,18 +35,35 @@ class IndexPage extends Component {
         YBefore: this.state.scroll.Y,
         Y: window.scrollY,
         delta: window.scrollY - this.state.scroll.YBefore,
-      }
+      },
     })
   }
 
-  getCurtains (curtains) {
-    this.setState({mainCurtain: curtains});
+  getCurtains(curtains) {
+    this.setState({ mainCurtain: curtains })
   }
-  
+
   render() {
     // console.log(this.state.scroll.delta)
     return (
       <>
+        <Global
+          styles={css`
+            h1,
+            h2,
+            h3 {
+              ${settingCSS.glitchRed}
+            }
+
+            a {
+              ${settingCSS.glitchBlue}
+            }
+
+            p {
+              ${settingCSS.glitchBlack}
+            }
+          `}
+        />
         <div
           css={css`
             /* We're probably going to use a canvas texture to overlay on the current texture for the text */
@@ -127,8 +144,6 @@ class IndexPage extends Component {
           </section>
           <section
             css={css`
-              ${settingCSS.glitchWhite}
-
               padding: 3rem 1.5rem;
 
               opacity: 1;
@@ -138,13 +153,7 @@ class IndexPage extends Component {
               }
             `}
           >
-            <h2
-              css={css`
-                ${settingCSS.glitchRed}
-              `}
-            >
-              INTRO
-            </h2>
+            <h2 id="about">INTRO</h2>
             <p>
               Hi! I’m Long Nguyen, a sophomore front-end developer at the
               University of Texas, Arlington. I specialize in website, UI/UX
@@ -168,13 +177,7 @@ class IndexPage extends Component {
               scroll={this.state.scroll}
             />
 
-            <h2
-              css={css`
-                ${settingCSS.glitchYellow}
-              `}
-            >
-              WORK WITH ME
-            </h2>
+            <h2 id="contact">WORK WITH ME</h2>
             <p
               css={css`
                 margin-bottom: 1.5rem;
@@ -187,9 +190,6 @@ class IndexPage extends Component {
 
             <div>
               <a
-                css={css`
-                  ${settingCSS.anchor}
-                `}
                 href="mailto:18nguyenl@gmail.com"
               >
                 18nguyenl@gmail.com
@@ -197,9 +197,6 @@ class IndexPage extends Component {
             </div>
             <div>
               <a
-                css={css`
-                  ${settingCSS.anchor}
-                `}
                 href="LongNguyenResume CS.pdf"
                 download
               >
@@ -210,8 +207,6 @@ class IndexPage extends Component {
           <section>
             <h2
               css={css`
-                ${settingCSS.glitchBlue}
-
                 margin-bottom: 1.5rem;
               `}
             >
@@ -228,10 +223,10 @@ class IndexPage extends Component {
                   &:hover {
                     text-shadow: none;
 
-                    ${settingCSS.glitchRed}
+                    ${settingCSS.glitchBlue}
                   }
 
-                   @media only screen and (min-width: 425px) {
+                  @media only screen and (min-width: 425px) {
                     font-size: 2.25rem;
                   }
 

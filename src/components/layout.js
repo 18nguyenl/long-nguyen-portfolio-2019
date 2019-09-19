@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { css } from "@emotion/core"
 
 import Header from "./header"
+import Navigation from "./navigation_menu"
 import "./layout.css"
 
 import { Curtains } from "curtainsjs"
@@ -148,7 +149,7 @@ class Layout extends Component {
             css={css`
               position: relative;
 
-              z-index: 15;
+              z-index: 16;
             `}
           >
             <Header data-scroll-content />
