@@ -29,24 +29,30 @@ module.exports = merge(common, {
   ],
   module: {
     rules: [
-      { test: /\.js$/, loader: "babel-loader" },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      },
+      {
+        test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
           "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: function() {
-                return [require("autoprefixer")];
-              }
-            }
-          },
+          // Compiles Sass to CSS
           "sass-loader"
         ]
+      },
+      {
+        test: /\.txt$/i,
+        use: "raw-loader"
       }
     ]
   }
