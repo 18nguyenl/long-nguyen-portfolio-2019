@@ -44,8 +44,19 @@ module.exports = merge(common, {
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
           // Translates CSS into CommonJS
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: function() {
+                return [require("autoprefixer")];
+              }
+            }
+          },
           // Compiles Sass to CSS
           "sass-loader"
         ]

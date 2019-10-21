@@ -30,6 +30,14 @@ module.exports = merge(common, {
           "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: function() {
+                return [require("autoprefixer")];
+              }
+            }
+          },
           // Compiles Sass to CSS
           "sass-loader"
         ]
