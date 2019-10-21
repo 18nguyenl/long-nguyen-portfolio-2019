@@ -43,7 +43,6 @@ module.exports = merge(common, {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader
           },
