@@ -1,6 +1,6 @@
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
@@ -10,16 +10,12 @@ module.exports = merge(common, {
   watch: false,
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "js/script.js"
+    filename: "js/bundle.js"
   },
 
   optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true
-      })
-    ]
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   plugins: [
     new CleanWebpackPlugin(),
