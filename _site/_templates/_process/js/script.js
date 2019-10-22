@@ -7,7 +7,7 @@ import StaggerTranslateUp from './staggerTranslateUp';
 
 import HomeRenderer from './homeRenderer';
 
-window.onload = function() {
+(() => {
     if ('scrollRestoration' in history) {
         // Back off, browser, I got this...
         history.scrollRestoration = 'manual';
@@ -31,5 +31,5 @@ window.onload = function() {
 
         }
     });
-}
+})();
 

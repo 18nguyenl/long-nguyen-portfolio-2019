@@ -13,8 +13,6 @@ dataRouterView: data-router-view
     {% if myProject.environment == "production" %}
     <link rel="stylesheet" href="{{ "/css/style.css" | url }}" type="text/css">
     {% endif %}
-
-    <script src="{{ "/js/bundle.js" | url }}"></script>
 </head>
 <body>
     <main id="js-scroll" data-router-wrapper>
@@ -23,5 +21,6 @@ dataRouterView: data-router-view
             {{ content | safe }}
         </article>
     </main>
+    <script src="{{ "/js/bundle.js" | url }}"></script>
 </body>
 </html>
