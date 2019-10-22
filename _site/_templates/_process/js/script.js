@@ -5,6 +5,8 @@ import {Curtains} from 'curtainsjs';
 import Fade from './fade';
 import StaggerTranslateUp from './staggerTranslateUp';
 
+import HomeRenderer from './homeRenderer';
+
 window.onload = function() {
     const curtains = new Curtains({
         container: "canvas",
@@ -19,6 +21,10 @@ window.onload = function() {
         transitions: {
             default: Fade,
             blog: StaggerTranslateUp,
+        },
+        renderers: {
+            home: HomeRenderer,
+            blog: HomeRenderer,
         }
     });
 }

@@ -13,7 +13,8 @@ class StaggerTranslateUp extends Highway.Transition {
         timeline.staggerFrom(elements, 0.5, {
             y: 20,
             opacity: 0,
-            ease: Power3.easeInOut
+            ease: Power3.easeInOut,
+            onComplete: done
         }, 0.1)
     }
 

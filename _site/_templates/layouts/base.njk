@@ -14,7 +14,9 @@ dataRouterView: data-router-view
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     {% endif %}
 
-    <script src="js/bundle.js"></script>
+    <!-- {% if page.fileSlug == "" %} -->
+    <script src="/js/bundle.js"></script>
+    <!-- {% endif %} -->
 </head>
 <body>
     <main id="js-scroll" data-router-wrapper>
