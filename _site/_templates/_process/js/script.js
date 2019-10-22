@@ -8,6 +8,11 @@ import StaggerTranslateUp from './staggerTranslateUp';
 import HomeRenderer from './homeRenderer';
 
 window.onload = function() {
+    if ('scrollRestoration' in history) {
+        // Back off, browser, I got this...
+        history.scrollRestoration = 'manual';
+    }
+
     const curtains = new Curtains({
         container: "canvas",
     })
@@ -23,8 +28,7 @@ window.onload = function() {
             blog: StaggerTranslateUp,
         },
         renderers: {
-            home: HomeRenderer,
-            blog: HomeRenderer,
+
         }
     });
 }

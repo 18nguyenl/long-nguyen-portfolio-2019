@@ -1,12 +1,12 @@
 ---
 layout: layouts/base.njk
-dataRouterView: data-router-view="home"
+dataRouterView: data-router-view=home
 ---
 
 <section class="cover cover__section">
     <article>
         <h1>This is a link with transitions :D</h1>
-        <a href="/blog/">link to da blog</a>
+        <a href={{ "/blog" | url }}>link to da blog</a>
     </article>
     <article>
         <h1>Still here?</h1>

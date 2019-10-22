@@ -11,12 +11,10 @@ dataRouterView: data-router-view
     <title>{{ metadata.title }}</title>
 
     {% if myProject.environment == "production" %}
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ "/css/style.css" | url }}" type="text/css">
     {% endif %}
 
-    <!-- {% if page.fileSlug == "" %} -->
-    <script src="/js/bundle.js"></script>
-    <!-- {% endif %} -->
+    <script src="{{ "/js/bundle.js" | url }}"></script>
 </head>
 <body>
     <main id="js-scroll" data-router-wrapper>
