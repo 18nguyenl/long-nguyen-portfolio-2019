@@ -7,19 +7,17 @@ import StaggerTranslateUp from './staggerTranslateUp';
 
 import HomeRenderer from './homeRenderer';
 
-(() => {
-    if ('scrollRestoration' in history) {
-        // Back off, browser, I got this...
-        history.scrollRestoration = 'manual';
-    }
-
-    const curtains = new Curtains({
-        container: "canvas",
-    })
+window.onload = () => {
+    // const curtains = new Curtains({
+    //     container: "canvas",
+    // })
 
     const scroll = new LocomotiveScroll({
         el: document.querySelector("#js-scroll"),
         smooth: true,
+        inertia: 0.5,
+        passive: true,
+        smoothMobile: true,
     });
 
     const H = new Highway.Core({
@@ -31,5 +29,5 @@ import HomeRenderer from './homeRenderer';
 
         }
     });
-})();
+}
 

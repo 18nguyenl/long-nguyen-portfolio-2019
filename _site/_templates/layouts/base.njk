@@ -15,12 +15,15 @@ dataRouterView: data-router-view
     {% endif %}
 </head>
 <body>
-    <main id="js-scroll" data-router-wrapper>
-        <article {{ dataRouterView }}>
-            <canvas id="canvas"></canvas>
-            {{ content | safe }}
-        </article>
-    </main>
+    <div id="js-scroll" data-scroll>
+        {% include "_components/header.njk" %}
+        <main data-router-wrapper>
+            <article {{ dataRouterView }}>
+                {# <canvas id="canvas"></canvas> #}
+                {{ content | safe }}
+            </article>
+        </main>
+    </div>
     <script src="{{ "/js/bundle.js" | url }}"></script>
 </body>
 </html>

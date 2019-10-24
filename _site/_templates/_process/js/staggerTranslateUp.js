@@ -3,8 +3,6 @@ import Highway from '@dogstudio/highway';
 
 class StaggerTranslateUp extends Highway.Transition {
     in({ from, to, done}) {
-        window.scrollTo(0,0);
-
         from.remove();
 
         const elements = [...to.children]
