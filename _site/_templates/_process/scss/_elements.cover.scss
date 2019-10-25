@@ -24,8 +24,8 @@
 
     position: relative;
 
-    @include font-size(3);
-    @include line-height(1.5);
+    font-size: 12vw;
+    line-height: 12vw;
 }
 
 .cover__phrase--red {
