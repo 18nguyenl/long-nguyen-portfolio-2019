@@ -1,6 +1,8 @@
 .headings__container {
   position: absolute;
 
+  z-index: 100;
+
   width: 100%;
 
   @include margin(1.325, 0, 0, 0);
