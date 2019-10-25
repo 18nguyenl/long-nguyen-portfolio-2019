@@ -8,7 +8,7 @@ varying vec2 vTextureCoord;
 
 // the uniform we declared inside our javascript
 uniform float uTime;
-uniform float uPower;
+uniform float uScrollEffect;
 
 // our texture sampler (default name, to use a different name please refer to the documentation)
 uniform sampler2D uSampler0;
@@ -37,8 +37,8 @@ void main() {
     vec2 green_channel = textureCoord;
     vec2 blue_channel = textureCoord;
 
-    red_channel.y += uPower * 0.004;
-    blue_channel.y -= uPower * 0.003;
+    red_channel.y += uScrollEffect * 0.004;
+    blue_channel.y -= uScrollEffect * 0.003;
 
     vec3 channel_shift = vec3(texture2D(uSampler0, red_channel).r, texture2D(uSampler0, green_channel).g, texture2D(uSampler0, blue_channel).b);
 

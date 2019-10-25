@@ -11,8 +11,18 @@
 
 #canvas {
     position: fixed;
-    width: 100vw;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    max-width: auto;
+
+    display: block;
+
     height: 100vh;
 
-    z-index: 0;
+    z-index: 10;
+
+    margin: 0;
 }
