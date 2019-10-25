@@ -1,6 +1,9 @@
 @import url("https://use.typekit.net/ifh6dsc.css");
 
+@import "tools.mixins";
+
 @import "normalize-scss/normalize/import-now";
+@import "locomotive-scroll.min.css";
 
 @import "settings.colors";
 @import "settings.global";
@@ -10,6 +13,7 @@
 @import "generic.box-sizing";
 @import "generic.shared";
 
+@import "elements.header";
 @import "elements.headings";
 @import "elements.links";
 @import "elements.lists";

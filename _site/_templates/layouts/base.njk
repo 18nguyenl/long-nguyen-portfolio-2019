@@ -15,11 +15,11 @@ dataRouterView: data-router-view
     {% endif %}
 </head>
 <body>
-    <div id="js-scroll" data-scroll>
+    {# <canvas id="canvas"></canvas> #}
+    <div id="js-scroll" class="page__container">
         {% include "_components/header.njk" %}
         <main data-router-wrapper>
             <article {{ dataRouterView }}>
-                {# <canvas id="canvas"></canvas> #}
                 {{ content | safe }}
             </article>
         </main>

@@ -5,29 +5,41 @@ import {Curtains} from 'curtainsjs';
 import Fade from './fade';
 import StaggerTranslateUp from './staggerTranslateUp';
 
-import HomeRenderer from './homeRenderer';
-
-window.onload = () => {
+window.addEventListener('load', () => {
     // const curtains = new Curtains({
     //     container: "canvas",
     // })
 
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector("#js-scroll"),
-        smooth: true,
-        inertia: 0.5,
-        passive: true,
-        smoothMobile: true,
-    });
+    if ('scrollRestoration' in history) {
+        // Back off, browser, I got this...
+        history.scrollRestoration = 'manual';
+    }
 
-    const H = new Highway.Core({
-        transitions: {
-            default: Fade,
-            blog: StaggerTranslateUp,
-        },
-        renderers: {
+    // const scrollContainer = document.querySelector("#js-scroll");
 
-        }
-    });
-}
+    // const scroll = new LocomotiveScroll({
+    //     el: scrollContainer,
+    //     smooth: true,
+    //     inertia: 0.5,
+    //     smoothMobile: true,
+    // });
+
+    // scroll.scrollTo(scrollContainer)
+
+    // const H = new Highway.Core({
+    //     transitions: {
+    //         default: Fade,
+    //         blog: StaggerTranslateUp,
+    //     },
+    //     renderers: {
+
+    //     }
+    // });
+
+    // H.on('NAVIGATE_IN', () => {
+    //     scroll.destroy();
+    //     scroll.init();
+    //     scroll.scrollTo(scrollContainer)
+    // })
+})
 

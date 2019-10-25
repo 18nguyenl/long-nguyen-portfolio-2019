@@ -1,8 +1,8 @@
 import Highway from '@dogstudio/highway';
 
-class HomeRenderer extends Highway.Renderer {
+class DefaultRenderer extends Highway.Renderer {
     onEnter() {
-        console.log("page entered")
+        
     }
 
     onLeave() {
