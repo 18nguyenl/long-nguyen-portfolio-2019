@@ -2,12 +2,11 @@
 
 @import "tools.mixins";
 
-@import "normalize-scss/normalize/import-now";
-@import "locomotive-scroll.min.css";
-
 @import "settings.colors";
 @import "settings.global";
+
 @import "gutenberg/gutenberg";
+@import "locomotive-scroll.min.css";
 
 @import "generic.reset";
 @import "generic.box-sizing";

@@ -13,7 +13,9 @@
 }
 
 .cover__phrases {
-    
+    position: relative;
+
+    z-index: 10;
 }
 
 .cover__phrase {
@@ -22,8 +24,8 @@
 
     position: relative;
 
-    @include font-size(2.25);
-    @include line-height(1.25);
+    @include font-size(3);
+    @include line-height(1.5);
 }
 
 .cover__phrase--red {
@@ -44,6 +46,8 @@
 
 .cover__plane {
     position: absolute;
+
+    z-index: 0;
 
     left: 0;
     top: 0;

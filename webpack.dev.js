@@ -39,12 +39,21 @@ module.exports = merge(common, {
             }
           },
           // Compiles Sass to CSS
-          "sass-loader"
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            }
+          }
         ]
       },
       {
-        test: /\.txt$/i,
-        use: "raw-loader"
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        exclude: /node_modules/,
+        use: [
+          'raw-loader',
+          'glslify-loader'
+        ]
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
