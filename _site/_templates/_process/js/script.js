@@ -20,6 +20,7 @@ window.addEventListener('load', () => {
         el: scrollContainer,
         smooth: true,
         inertia: 0.5,
+        smoothMobile: true,
     });
     scroll.scrollTo(scrollContainer)
 
