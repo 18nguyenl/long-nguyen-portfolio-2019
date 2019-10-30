@@ -9,13 +9,22 @@ varying vec2 vTextureCoord;
 // the uniform we declared inside our javascript
 uniform float uTime;
 uniform float uScrollEffect;
+uniform vec2 uRes;
 
 // our texture sampler (default name, to use a different name please refer to the documentation)
 uniform sampler2D uSampler0;
 
 void main() {
+    vec2 dimensions = gl_FragCoord.xy / uRes.xy;
+
     // get our texture coords
     vec2 textureCoord = vTextureCoord;
+    
+    textureCoord /= 1.1;
+    textureCoord.x += 0.05;
+    textureCoord.y += 0.05;
+
+    vec4 displacement = texture2D(uSampler0, textureCoord);
 
     // displace our pixels along both axis based on our time uniform and texture UVs
     // this will create a kind of water surface effect
@@ -32,6 +41,7 @@ void main() {
     //     sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
     //     + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
     //     ) * 0.0125;
+    vec3 color = vec3(smoothstep(0.0, 2.0, dimensions.y)) * vec3(smoothstep(2.0, 0.0, dimensions.y)) * .85;
 
     vec2 red_channel = textureCoord;
     vec2 green_channel = textureCoord;
@@ -43,4 +53,7 @@ void main() {
     vec3 channel_shift = vec3(texture2D(uSampler0, red_channel).r, texture2D(uSampler0, green_channel).g, texture2D(uSampler0, blue_channel).b);
 
     gl_FragColor = vec4(channel_shift, 1.0);
+
+
+    // gl_FragColor = vec4(color, 1.0);
 }

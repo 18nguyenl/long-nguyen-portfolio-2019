@@ -99,6 +99,11 @@ window.addEventListener('load', () => {
                 name: "uTime",
                 type: "1f",
                 value: 0.0,
+            },
+            resolution: {
+                name: "uRes",
+                type: "2f",
+                value: [window.innerWidth, window.innerHeight],
             }
         },
     };
