@@ -90,7 +90,7 @@ window.addEventListener('load', () => {
     else {
         window.addEventListener("scroll", function() {
             updateScroll(window.pageXOffset, window.pageYOffset);
-        }, {passive: true});
+        });
     }
 
     // no need for shaders as they were already passed by data attributes
