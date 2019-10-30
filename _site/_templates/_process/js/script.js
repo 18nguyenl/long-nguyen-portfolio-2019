@@ -67,31 +67,21 @@ window.addEventListener('load', () => {
             scrollEffect = delta.y * 1.5;
         }
 
-        // manually update planes positions
-        for(let i = 0; i < planes.length; i++) {
-            planes[i].updateScrollPosition();
+        planes.forEach(e => {
+            e.updateScrollPosition();
 
-            // update the plane deformation uniform as well
-            planes[i].uniforms.scrollEffect.value = scrollEffect;
-        }
+            e.uniforms.scrollEffect.value = scrollEffect;
+        })
     }
 
-    // custom scroll event
-    if(!scroll.isMobile) {
-        // we'll render only while lerping the scroll
-        curtains.disableDrawing();
-        scroll.on('scroll', function(obj) {
-            updateScroll(obj.scroll.x, obj.scroll.y);
+    // we'll render only while lerping the scroll
+    curtains.disableDrawing();
+    scroll.on('scroll', function(obj) {
+        updateScroll(obj.scroll.x, obj.scroll.y);
 
-            // render scene
-            curtains.needRender();
-        });
-    }
-    else {
-        window.addEventListener("scroll", function() {
-            updateScroll(window.pageXOffset, window.pageYOffset);
-        });
-    }
+        // render scene
+        curtains.needRender();
+    });
 
     // no need for shaders as they were already passed by data attributes
     let params = {
