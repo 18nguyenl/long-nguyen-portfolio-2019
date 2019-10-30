@@ -76,14 +76,22 @@ window.addEventListener('load', () => {
         }
     }
 
-    // we'll render only while lerping the scroll
-    curtains.disableDrawing();
-    scroll.on('scroll', function(obj) {
-        updateScroll(obj.scroll.x, obj.scroll.y);
+    // custom scroll event
+    if(!scroll.isMobile) {
+        // we'll render only while lerping the scroll
+        curtains.disableDrawing();
+        scroll.on('scroll', function(obj) {
+            updateScroll(obj.scroll.x, obj.scroll.y);
 
-        // render scene
-        curtains.needRender();
-    });
+            // render scene
+            curtains.needRender();
+        });
+    }
+    else {
+        window.addEventListener("scroll", function() {
+            updateScroll(window.pageXOffset, window.pageYOffset);
+        });
+    }
 
     // no need for shaders as they were already passed by data attributes
     let params = {
