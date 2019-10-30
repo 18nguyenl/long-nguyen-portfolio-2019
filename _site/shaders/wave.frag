@@ -24,6 +24,9 @@ void main() {
     textureCoord.x += 0.05;
     textureCoord.y += 0.05;
 
+    float rippleEffect = (0.125 * cos(5.0 * textureCoord.x + uTime * 0.1)) * (uScrollEffect * 0.02);
+    textureCoord.y += rippleEffect - (uScrollEffect * 0.005);
+
     vec4 displacement = texture2D(uSampler0, textureCoord);
 
     // displace our pixels along both axis based on our time uniform and texture UVs
