@@ -82,9 +82,6 @@ window.addEventListener('load', () => {
     // curtains.disableDrawing();
     scroll.on('scroll', function(obj) {
         updateScroll(obj.scroll.x, obj.scroll.y);
-
-        // render scene
-        curtains.needRender();
     });
 
     // no need for shaders as they were already passed by data attributes
