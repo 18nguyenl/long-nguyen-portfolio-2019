@@ -17,7 +17,7 @@ dataRouterView: data-router-view
     <div id="js-scroll" class="page__container">
         {% include "_components/header.njk" %}
         <div id="canvas" data-scroll></div>
-        <main data-router-wrapper>
+        <main data-router-wrapper data-scroll>
             <article {{ dataRouterView }}>
                 {{ content | safe }}
             </article>

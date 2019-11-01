@@ -80,7 +80,7 @@ window.addEventListener('load', () => {
 
     // we'll render only while lerping the scroll
     // curtains.disableDrawing();
-    scroll.on('scroll', function(obj) {
+    scroll.on('scroll', (obj) => {
         updateScroll(obj.scroll.x, obj.scroll.y);
     });
 
