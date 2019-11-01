@@ -79,7 +79,7 @@ window.addEventListener('load', () => {
     }
 
     // we'll render only while lerping the scroll
-    curtains.disableDrawing();
+    // curtains.disableDrawing();
     scroll.on('scroll', function(obj) {
         updateScroll(obj.scroll.x, obj.scroll.y);
 
@@ -138,9 +138,6 @@ window.addEventListener('load', () => {
             }
         }).onRender(function() {
             plane.uniforms.time.value++;
-            // scale plane and its texture
-            // plane.setScale(1, 1 + Math.abs(scrollEffect) / 300);
-            // plane.textures[0].setScale(1, 1 + Math.abs(scrollEffect) / 150);
         })
     }
 
