@@ -24,7 +24,7 @@ void main() {
     textureCoord.x += 0.05;
     textureCoord.y += 0.05;
 
-    float rippleEffect = (0.125 * cos(5.0 * textureCoord.x + uTime * 0.1)) * (uScrollEffect * 0.02);
+    float rippleEffect = (0.125 * cos(uScrollEffect * 0.02 + uTime * 0.01) * cos(5.0 * textureCoord.x + uTime * 0.1)) * (uScrollEffect * 0.02);
     textureCoord.y += rippleEffect - (uScrollEffect * 0.005);
 
     vec4 displacement = texture2D(uSampler0, textureCoord);

@@ -70,7 +70,7 @@ window.addEventListener('load', () => {
         planes.forEach(e => {
             e.updateScrollPosition();
 
-            if (Math.abs(delta.y) == 0) {
+            if (Math.abs(delta.y) <= 1) {
                 e.uniforms.time.value = 0;
             }
 
