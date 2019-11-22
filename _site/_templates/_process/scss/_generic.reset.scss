@@ -27,6 +27,10 @@ button,
     width: 0;
 }
 
+button:focus {
+    outline: none;
+}
+
 .list--reset {
     list-style: none;
     margin: 0;

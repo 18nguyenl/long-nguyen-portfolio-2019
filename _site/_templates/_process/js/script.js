@@ -14,6 +14,12 @@ window.addEventListener('load', () => {
     //     history.scrollRestoration = 'manual';
     // }
 
+    const menuButton = document.getElementById("hamburger__decoration");
+
+    menuButton.addEventListener('click', (e) => {
+        menuButton.classList.toggle('hamburger__menu--exit');
+    })
+
     const scrollContainer = document.querySelector("#js-scroll");
 
     const scroll = new LocomotiveScroll({

@@ -1,28 +1,28 @@
 .headings__container {
   position: absolute;
-
+  
   z-index: 100;
-
+  
   width: 100%;
-
+  
   @include margin(1.325, 0, 0, 0);
   @include padding(0, 1.325, 0, 1.325);
 }
 
 .headings__list {
   list-style: none;
-
+  
   width: inherit;
-
+  
   display: flex;
   justify-content: space-between;
-
+  
   padding: 0;
 }
 
 .headings__title {
   font-weight: 500;
-
+  
   margin-left: 0;
 }
 
@@ -32,54 +32,65 @@ $hamburger-height: 3px;
 // Default state
 .headings__menu {
   margin-right: 0;
+  padding: 0;
+
+  width: $hamburger-width;
+  height: $hamburger-height * 8;
 
   > button {
-    position: relative;
+    padding: 0;
 
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.hamburger__decoration {
+  position: relative;
+  
+  display: block;
+  
+  width: 100%;
+  height: $hamburger-height;
+  
+  margin-top: ($hamburger-height) * 2;
+  
+  background: $glitch-black;
+  
+  transition: all 0.4s cubic-bezier(1, 0, 0, 1);
+  
+  &::before,
+  &::after {
     display: block;
-
+    
+    position: absolute;
+    z-index: -1;
+    
+    content: "";
+    
     width: $hamburger-width;
     height: $hamburger-height;
-
-    margin-top: ($hamburger-height) * 2;
-
+    
     background: $glitch-black;
-
-    transition: all 0.4s cubic-bezier(1, 0, 0, 1);
-
-    &::before,
-    &::after {
-      display: block;
-
-      position: absolute;
-      z-index: -1;
-
-      content: "";
-
-      width: $hamburger-width;
-      height: $hamburger-height;
-
-      background: $glitch-black;
-
-      transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    }
-
-    &::before {
-      left: 0;
-      top: $hamburger-height * -3;
-    }
-
-    &::after {
-      left: 0;
-      top: $hamburger-height * 3;
-    }
+    
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  
+  &::before {
+    left: 0;
+    top: -$hamburger-height * 3;
+  }
+  
+  &::after {
+    left: 0;
+    top: $hamburger-height * 3;
   }
 }
 
 // "X" state
 .hamburger__menu--exit {
   background: none;
-
+  
   &::before,
   &::after {
     top: $hamburger-height * 2;
