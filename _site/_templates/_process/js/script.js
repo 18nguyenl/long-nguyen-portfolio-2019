@@ -22,7 +22,6 @@ window.addEventListener('load', () => {
         inertia: 0.5,
         smoothMobile: true,
     });
-    scroll.scrollTo(scrollContainer)
 
     let planes = [];
     let scrollEffect = 0;
@@ -128,6 +127,7 @@ window.addEventListener('load', () => {
         plane && plane.onReady(function() {
             // apply parallax on load
             // applyPlanesParallax(index);
+            scroll.start();
 
             // once everything is ready, display everything
             if(index == planes.length - 1) {

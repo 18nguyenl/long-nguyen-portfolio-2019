@@ -9,6 +9,14 @@
     z-index: 10;
 }
 
+#js-scroll {
+    position: relative;
+
+    z-index: 15;
+
+    height: 100%;
+}
+
 #canvas {
     position: fixed;
     left: 0;
