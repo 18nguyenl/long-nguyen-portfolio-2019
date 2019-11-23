@@ -15,9 +15,11 @@ window.addEventListener('load', () => {
     // }
 
     const menuButton = document.getElementById("hamburger__decoration");
+    const navigation = document.getElementById("navigation");
 
     menuButton.addEventListener('click', (e) => {
         menuButton.classList.toggle('hamburger__menu--exit');
+        navigation.classList.toggle('navigation--visible');
     })
 
     const scrollContainer = document.querySelector("#js-scroll");
@@ -145,20 +147,22 @@ window.addEventListener('load', () => {
     }
 
 
-    const H = new Highway.Core({
-        transitions: {
-            default: Fade,
-            blog: StaggerTranslateUp,
-        },
-        renderers: {
+    // const H = new Highway.Core({
+    //     transitions: {
+    //         // default: Fade,
+    //         // blog: StaggerTranslateUp,
+    //     },
+    //     renderers: {
 
-        }
-    });
+    //     }
+    // });
 
-    H.on('NAVIGATE_IN', () => {
-        // scroll.destroy();
-        // scroll.init();
-        // scroll.scrollTo(scrollContainer)
-    })
+    // H.on('NAVIGATE_IN', () => {
+    //     // scroll.destroy();
+    //     // scroll.init();
+    //     // scroll.scrollTo(scrollContainer)
+
+    //     navigation.classList.remove('navigation--visible');
+    // })
 })
 
