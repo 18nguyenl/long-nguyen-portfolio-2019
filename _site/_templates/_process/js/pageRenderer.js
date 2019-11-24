@@ -2,9 +2,7 @@ import Highway from '@dogstudio/highway';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
-import WebGL from './webgl';
-
-class HomeRenderer extends Highway.Renderer {
+class PageRenderer extends Highway.Renderer {
     onEnter() {
         // if ('scrollRestoration' in history) {
         //     // Back off, browser, I got this...
@@ -27,12 +25,7 @@ class HomeRenderer extends Highway.Renderer {
             inertia: 0.5,
             smoothMobile: true,
         });
-        this.webgl = new WebGL(scroll);
-    }
-
-    onLeave() {
-        // curtains.dispose();
     }
 }
 
-export default HomeRenderer;
+export default PageRenderer;
