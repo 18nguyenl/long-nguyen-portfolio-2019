@@ -1,5 +1,5 @@
 ---
-dataRouterView: data-router-view
+dataNamespace: data-barba-namespace="home"
 ---
 
 <!DOCTYPE html>
@@ -16,10 +16,10 @@ dataRouterView: data-router-view
 <body>
     <div class="page__container">
         <div id="canvas"></div>
-        <main data-router-wrapper>
-            <article {{ dataRouterView }} id="js-scroll">
-                {% include "_components/header.njk" %}
-                {% include "_components/navigation.njk" %}
+        <main data-barba="wrapper" id="js-scroll">
+            {% include "_components/header.njk" %}
+            {% include "_components/navigation.njk" %}
+            <article data-barba="container" {{ dataNamespace }}>
                 {{ content | safe }}
             </article>
         </main>

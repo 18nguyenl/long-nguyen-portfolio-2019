@@ -9,6 +9,14 @@
     z-index: 10;
 }
 
+main {
+    height: 100%;
+}
+
+[data-barba="container"] {
+    width: 100%;
+}
+
 #js-scroll {
     position: relative;
 
