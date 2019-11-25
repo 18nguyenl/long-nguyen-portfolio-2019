@@ -13,6 +13,9 @@ window.addEventListener("load", () => {
   //     history.scrollRestoration = 'manual';
   // }
 
+  // Temporary preload
+  document.body.style.display = "block";
+
   const menuButton = document.getElementById("hamburger__decoration");
   const navigation = document.getElementById("navigation");
 
