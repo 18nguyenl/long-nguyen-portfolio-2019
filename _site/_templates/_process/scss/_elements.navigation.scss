@@ -1,6 +1,8 @@
 .navigation {
     position: fixed;
 
+    transform: translateY(-100vh);
+
     visibility: hidden;
     background: white;
     
@@ -8,10 +10,14 @@
     width: 100vw;
 
     z-index: 999;
+
+    transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 .navigation--visible {
     visibility: visible;
+
+    transform: translateY(0);
 }
 
 .navigation__content {
