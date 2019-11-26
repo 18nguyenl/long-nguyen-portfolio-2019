@@ -1,14 +1,15 @@
-import {Curtains} from 'curtainsjs';
-
 import waveFS from "../../../shaders/wave.frag";
 import waveVS from "../../../shaders/wave.vert";
+
+import Tween from "gsap";
+import Power2 from "gsap";
 
 export default class HomeShader {
     constructor(curtains, scroll) {
         this.planes = [];
         this.scrollEffect = 0;
         this.scroll = scroll;
-
+        
         this.planeElements = [];
         this.curtains = curtains;
         
@@ -37,7 +38,7 @@ export default class HomeShader {
         
         let delta = this.curtains.getScrollDeltas();
         delta.y = -delta.y;
-
+        
         // threshold
         if(delta.y > 60) {
             delta.y = 60;
@@ -45,7 +46,7 @@ export default class HomeShader {
         else if(delta.y < -60) {
             delta.y = -60;
         }
-
+        
         if(scroll.isMobile && Math.abs(delta.y) > Math.abs(this.scrollEffect)) {
             this.scrollEffect = delta.y;
         }
@@ -91,19 +92,20 @@ export default class HomeShader {
         this.planes && this.planes.forEach(e => {
             this.curtains.removePlane(e);
         })
-
+        
         this.planes = [];
     }
-
+    
     createPlanes() {
         this.scrollEffect = 0;
-
+        
         // no need for shaders as they were already passed by data attributes
         let params = {
             vertexShader: waveVS,
             fragmentShader: waveFS,
             widthSegments: 10,
             heightSegments: 10,
+            transparent: true,
             uniforms: {
                 scrollEffect: {
                     name: "uScrollEffect",
@@ -124,7 +126,7 @@ export default class HomeShader {
         };
         
         this.planeElements = document.getElementsByClassName("plane");
-
+        
         // add our this.planes and handle them
         for(let i = 0; i < this.planeElements.length; i++) {
             let plane = this.curtains.addPlane(this.planeElements[i], params);
@@ -134,13 +136,13 @@ export default class HomeShader {
                 this.handlePlanes(i);
             }
         }
-
+        
         // we'll render only while lerping the scroll
         // this.curtains.disableDrawing();
         this.scroll.on('scroll', (obj) => {
             this.updateScroll(obj.scroll.x, obj.scroll.y);
         });
-
+        
         // this.scroll.start();
     }
 }
