@@ -38,6 +38,6 @@
 .navigation__link {
     font-weight: 900;
 
-    @include margin(2.325, 0, 0, 0);
     @include font-size(map-get($modular-scale, xxxl));
+    line-height: $line-height;
 }
