@@ -1,3 +1,11 @@
 .button--clear-appearance {
     appearance: none !important;
 }
+
+.c-scrollbar {
+    z-index: 999;
+}
+
+.c-scrollbar_thumb {
+    width: 0.3rem !important;
+}

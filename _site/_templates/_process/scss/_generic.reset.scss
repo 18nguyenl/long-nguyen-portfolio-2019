@@ -31,6 +31,10 @@ button:focus {
     outline: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .list--reset {
     list-style: none;
     margin: 0;
