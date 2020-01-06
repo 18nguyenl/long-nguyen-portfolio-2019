@@ -142,7 +142,5 @@ export default class HomeShader {
         this.scroll.on('scroll', (obj) => {
             this.updateScroll(obj.scroll.x, obj.scroll.y);
         });
-        
-        // this.scroll.start();
     }
 }
