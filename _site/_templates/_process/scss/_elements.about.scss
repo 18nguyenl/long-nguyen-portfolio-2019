@@ -3,3 +3,54 @@
         width: 100%;
     }
 }
+
+@media only screen and (min-width: 425px) {
+    .about__plane {
+        width: 80%;
+        max-width: 440px;
+
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .about__section {
+        position: relative;
+
+        > * {
+            position: relative;
+
+            z-index: 5;
+        }
+    }
+
+    .intro__details {
+        display: flex;
+
+        > p:first-child {
+            @include margin(0, 1, 0, 0);
+        }
+    }
+
+    .about__contact {
+        display: flex;
+        flex-flow: column wrap;
+
+        > * {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .about__plane {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        z-index: 0;
+
+        opacity: 0.2;
+
+        max-width: 300px;
+    }
+}

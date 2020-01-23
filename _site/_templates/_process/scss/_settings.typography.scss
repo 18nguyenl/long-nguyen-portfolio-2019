@@ -13,3 +13,10 @@
 .text--black {
     color: $glitch-black;
 }
+
+@media only screen and (max-width: 1024px) and (min-width: 425px) {
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
