@@ -29,22 +29,35 @@
 
     .intro__details {
         display: flex;
+        flex-flow: column wrap;
 
         > * {
             position: relative;
 
+            flex: 1;
+
             z-index: 5;
         }
+    }
+
+    .intro__text {
+        display: flex;
 
         > p:first-child {
             @include margin(0, 1, 0, 0);
         }
     }
 
+    .intro__contact {
+        max-width: 50%;
+
+        margin-left: 0;
+    }
+
     .about__plane {
         position: absolute;
-        bottom: 0;
-        left: 8vw;
+        bottom: -8vw;
+        right: 8vw;
 
         z-index: -1;
 
@@ -53,7 +66,5 @@
         filter: invert(1);
 
         z-index: 0;
-
-        // max-width: 300px;
     }
 }
