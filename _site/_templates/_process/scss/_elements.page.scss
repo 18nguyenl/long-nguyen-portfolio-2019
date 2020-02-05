@@ -42,3 +42,37 @@ main {
 
     margin: 0;
 }
+
+body > footer {
+    margin-bottom: 2rem;
+}
+
+.footer__copyright {
+    margin-left: 0;
+}
+
+.footer__text {
+    font-weight: 900;
+    font-size: 16vw;
+
+    line-height: 1;
+
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (min-width: 425px) {
+    body > footer {
+        display: flex;
+        flex-flow: column wrap;
+    
+        margin-bottom: 3rem;
+    }
+    
+    .footer__text {
+        font-size: 14vw;
+    
+        margin-bottom: 5rem;
+    }
+}

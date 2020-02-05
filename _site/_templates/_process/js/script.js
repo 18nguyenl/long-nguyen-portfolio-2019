@@ -1,14 +1,3 @@
-import { Curtains } from 'curtainsjs';
-import LocomotiveScroll from "locomotive-scroll";
-import barba from "@barba/core";
-import barbaPrefetch from '@barba/prefetch';
-
-import Tween from "gsap";
-
-import HomeShader from "./homeShader";
-
-import AssetLoader from "./AssetLoader";
-
 window.addEventListener("load", () => {
   // if ('scrollRestoration' in history) {
   //     // Back off, browser, I got this...
