@@ -57,11 +57,11 @@
     .about__plane {
         position: absolute;
         bottom: -8vw;
-        right: 8vw;
+        right: 15vw;
 
         z-index: -1;
 
-        width: 40vw;
+        opacity: 0.5;
 
         filter: invert(1);
 
