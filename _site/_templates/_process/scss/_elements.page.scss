@@ -48,11 +48,13 @@ img.gl {
 }
 
 footer {
+    padding: 0 4rem;
+
     margin-bottom: 2rem;
 }
 
 .footer__copyright {
-    margin-left: 0;
+    margin: 0;
 }
 
 .footer__text {
@@ -70,6 +72,8 @@ footer {
     footer {
         display: flex;
         flex-flow: column wrap;
+
+        padding: 0 8%;
     
         margin-bottom: 3rem;
     }

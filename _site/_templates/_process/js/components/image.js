@@ -24,7 +24,6 @@ import {
 
       this.geometry = geometry;
       this.material = material.clone();
-
       const texture = textures.getTexture([this.element.getAttribute("data-label")]);
 
       this.material.uniforms = {
@@ -42,7 +41,7 @@ import {
   
       this.add(this.mesh);
       scene.add(this);
-      
+
       // Handle hovers...
     }
   

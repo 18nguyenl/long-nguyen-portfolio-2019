@@ -56,6 +56,8 @@ export class Scroll {
 
         this.scroll.update();
 
+        this.scroll.on("scroll", this.onScroll);
+
         // this.scroll.init();
     }
 

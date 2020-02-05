@@ -9,9 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ metadata.title }}</title>
-    {% if myProject.environment == "production" %}
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    {% endif %}
+    <link rel="stylesheet" href={{ "/assets/_templates/_process/scss/style.css" | url }} type="text/css">
 </head>
 <body>
     <div class="preload"><span class="preload__text">0</span></div>
@@ -30,7 +28,7 @@
         </main>
     </div>
 
-    <script src="{{ "/js/bundle.js" | url }}"></script>
+    <script src="{{ "/assets/_templates/_process/js/script.js" | url }}"></script>
     {% if page.fileSlug == "" %}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>

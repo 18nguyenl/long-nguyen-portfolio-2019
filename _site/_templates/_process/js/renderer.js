@@ -7,6 +7,7 @@ class Renderer extends component(WebGLRenderer) {
     super({
       powerPreference: 'high-performance',
       antialiasing: false,
+      alpha: true
     });
 
     // this.gammaFactor = 2.2;

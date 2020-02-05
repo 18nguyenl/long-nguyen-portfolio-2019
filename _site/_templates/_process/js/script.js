@@ -20,6 +20,8 @@ class Site extends component() {
       history.scrollRestoration = 'manual';
     }
 
+    assets.load();
+
     const menuButton = document.getElementById("hamburger__decoration");
     const navigation = document.getElementById("navigation");
 
@@ -27,8 +29,6 @@ class Site extends component() {
       menuButton.classList.toggle("hamburger__menu--exit");
       navigation.classList.toggle("navigation--visible");
     });
-
-    assets.load();
 
     document.body.appendChild(renderer.domElement);
   }
@@ -39,11 +39,11 @@ class Site extends component() {
   }
 
   onLoadEnd() {
+    scroll.init();
+
     this.app = Application.start();
     this.app.register("trackable", trackable);
     this.transitionManager = new TransitionManager();
-
-    scroll.init();
 
     console.log('finished loader!');
   }
