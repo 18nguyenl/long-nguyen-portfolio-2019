@@ -14,21 +14,21 @@
     {% endif %}
 </head>
 <body>
-    <div class="page__container">
-        <div id="canvas"></div>
-        <main data-barba="wrapper" id="js-scroll">
+    <div class="preload"><span class="preload__text">0</span></div>
+    <div class="page__container" id="js-scroll">
+        <main data-barba="wrapper">
             {% include "_components/header.njk" %}
             {% include "_components/navigation.njk" %}
             <article data-barba="container" {{ dataNamespace }}>
                 {{ content | safe }}
             </article>
         </main>
-    </div>
 
-    <footer>
-        <div class="footer__text">Long<br/>Nguyen</div>
-        <span class="footer__copyright">copyright &copy; 2019</span>
-    </footer>
+        <footer>
+            <div class="footer__text">Long<br/>Nguyen</div>
+            <span class="footer__copyright">copyright &copy; 2019</span>
+        </footer>
+    </div>
 
     <script src="{{ "/js/bundle.js" | url }}"></script>
     {% if page.fileSlug == "" %}

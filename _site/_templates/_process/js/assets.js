@@ -1,26 +1,18 @@
 import { Loader } from 'resource-loader';
 import bidello from 'bidello';
-import deferred from '/js/utils/deferred';
+import deferred from './utils/deferred';
 
 import textures from './gl/utils/textures';
 
 const RESOURCES = [
   {
-    name: 'photo',
-    url: require('/assets/photo.jpg')
-  },
-  {
     name: 'Long Cutout',
-    url: require('/assets/Long Cutout.png')
+    url: require('../../../images/Long Cutout.png')
   },
   {
     name: 'edgy picture',
-    url: require('/assets/edgy picture.jpg')
+    url: require('../../../images/edgy picture.jpg')
   },
-  {
-    name: 'john-fornander-lCpjpQx6jQQ-unsplash',
-    url: require('/assets/john-fornander-lCpjpQx6jQQ-unsplash.jpg')
-  }
 
   //  {
   //    name: 'photo',
@@ -84,7 +76,9 @@ class Assets {
 
     this.preloadDOM.classList.add("preload__done");
 
-    bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
+    window.addEventListener("load", () => {
+      bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
+    })
   }
 }
 

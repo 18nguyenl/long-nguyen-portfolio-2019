@@ -1,17 +1,45 @@
-window.addEventListener("load", () => {
-  // if ('scrollRestoration' in history) {
-  //     // Back off, browser, I got this...
-  //     history.scrollRestoration = 'manual';
-  // }
+import settings from './settings';
+import * as helpers from './bidello';
+import renderer from './renderer';
+import camera from './camera';
+import scene from './scene';
+import { component } from 'bidello';
+import { scroll } from './bidello';
+import postfx from './postfx/postfx';
+import assets from './assets';
+import trackable from './kapla/Trackable';
 
-  // Temporary preload
-  document.body.style.display = "block";
+import { Application } from 'kapla';
 
-  const menuButton = document.getElementById("hamburger__decoration");
-  const navigation = document.getElementById("navigation");
+import TransitionManager from './transitionManager';
 
-  menuButton.addEventListener("click", e => {
-    menuButton.classList.toggle("hamburger__menu--exit");
-    navigation.classList.toggle("navigation--visible");
-  });
-});
+class Site extends component() {
+  init() {
+    assets.load();
+
+    document.body.appendChild(renderer.domElement);
+  }
+  
+  onRaf() {
+    renderer.render(scene, camera);
+    // postfx.render(scene, camera);
+  }
+
+  onLoadEnd() {
+    const menuButton = document.getElementById("hamburger__decoration");
+    const navigation = document.getElementById("navigation");
+
+    menuButton.addEventListener("click", e => {
+      menuButton.classList.toggle("hamburger__menu--exit");
+      navigation.classList.toggle("navigation--visible");
+    });
+
+    this.app = Application.start();
+    this.app.register("trackable", trackable);
+    this.transitionManager = new TransitionManager();
+
+    console.log('finished loader!');
+  }
+}
+
+new Site();

@@ -9,9 +9,9 @@ import {
 } from 'three';
 
 import { component } from 'bidello';
-import renderer from '/js/renderer';
-import settings from '/js/settings';
-import triangle from '/js/utils/triangle';
+import renderer from '../renderer';
+import settings from '../settings';
+import triangle from '../utils/triangle';
 import vertexShader from './postfx.vert';
 import fragmentShader from './postfx.frag';
 

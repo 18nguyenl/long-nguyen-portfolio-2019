@@ -29,9 +29,9 @@ import {
   MeshBasicMaterial,
 } from 'three';
 import MagicShader from 'magicshader';
-import renderer from '/js/renderer';
+import renderer from '../renderer';
 import triangle from './triangle';
-import camera from '/js/camera';
+import camera from '../camera';
 
 export const isAvailable = (() => {
   const gl = renderer.getContext();

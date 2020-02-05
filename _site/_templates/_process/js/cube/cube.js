@@ -6,7 +6,7 @@ import {
 
 import { component } from 'bidello';
 import MagicShader from 'magicshader';
-import trail from '/js/utils/trail';
+import trail from '../utils/trail';
 
 export default class extends component(Object3D) {
   init() {

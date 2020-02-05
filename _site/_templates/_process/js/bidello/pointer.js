@@ -1,7 +1,7 @@
 import bidello from 'bidello';
 import { Vector2, Vector3} from 'three';
 import { clamp } from 'math-toolbox';
-import camera from '/js/camera';
+import camera from '../camera';
 import { viewport } from './viewport';
 
 class Pointer {

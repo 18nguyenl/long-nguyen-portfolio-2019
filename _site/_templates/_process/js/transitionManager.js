@@ -1,7 +1,6 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 
-import site from './main';
 import { scroll, viewport, raf, Scroll } from './bidello';
 import bidello, { component } from 'bidello';
 
