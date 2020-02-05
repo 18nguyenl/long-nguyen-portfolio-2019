@@ -9,7 +9,7 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
     - name: "works"
       label: "Selected Works"
-      folder: "posts/works"
+      folder: "_site/posts/works"
       create: true
       slug: "work--{{year}}--{{month}}--{{day}}--{{slug}}"
       fields:
