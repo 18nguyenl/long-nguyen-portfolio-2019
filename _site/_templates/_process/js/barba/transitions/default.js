@@ -21,7 +21,6 @@ export default {
             uProgresses.push(uniforms.uProgress);
         }
 
-        
         gsap.fromTo(container, 0.5, { autoAlpha: 1 }, { autoAlpha: 0 }).then(() => {
             container.style.display = "none";
             done();

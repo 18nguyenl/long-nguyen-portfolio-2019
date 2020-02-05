@@ -15,6 +15,19 @@ import TransitionManager from './transitionManager';
 
 class Site extends component() {
   init() {
+    if ('scrollRestoration' in history) {
+      // Back off, browser, I got this...
+      history.scrollRestoration = 'manual';
+    }
+
+    const menuButton = document.getElementById("hamburger__decoration");
+    const navigation = document.getElementById("navigation");
+
+    menuButton.addEventListener("click", e => {
+      menuButton.classList.toggle("hamburger__menu--exit");
+      navigation.classList.toggle("navigation--visible");
+    });
+
     assets.load();
 
     document.body.appendChild(renderer.domElement);
@@ -26,17 +39,11 @@ class Site extends component() {
   }
 
   onLoadEnd() {
-    const menuButton = document.getElementById("hamburger__decoration");
-    const navigation = document.getElementById("navigation");
-
-    menuButton.addEventListener("click", e => {
-      menuButton.classList.toggle("hamburger__menu--exit");
-      navigation.classList.toggle("navigation--visible");
-    });
-
     this.app = Application.start();
     this.app.register("trackable", trackable);
     this.transitionManager = new TransitionManager();
+
+    scroll.init();
 
     console.log('finished loader!');
   }
