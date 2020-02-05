@@ -45,5 +45,9 @@ dataNamespace: data-barba-namespace=home
 <section class="portfolio__section">
     <article>
         <h1>SELECTED WORKS</h1>
+
+        {%- for work in collections.work -%}
+        <h2>{{work.data.title}}</h2>
+        {%- endfor -%}
     </article>
 </section>

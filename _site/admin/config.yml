@@ -17,4 +17,5 @@ collections:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Publish Date", name: "date", widget: "datetime"}
         - {label: "Featured Image", name: "thumbnail", widget: "image"}
+        - {label: "Tags", name: "tags", widget: "list", default: ['post', 'work']}
         - {label: "Body", name: "body", widget: "markdown"}

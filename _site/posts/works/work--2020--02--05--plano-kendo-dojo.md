@@ -3,6 +3,7 @@ layout: layouts/base.njk
 title: Plano Kendo Dojo
 date: 2020-02-05T01:35:17.998Z
 thumbnail: /images/uploads/image.jpg
+tags: ['post', 'work']
 ---
 Plano Kendo is a Kendo dojo where people of all ages and backgrounds can come and understand the beauty of Kendo. Originally, kendo was kenjutsu, a sword martial art used by ancient samurai. Today, kendo exists as a martial art to preserve the physical and mental discipline of kenjutsu. Plano Kendo exists as a place to bridge this tradition to people in a fun, powerful way.
 
