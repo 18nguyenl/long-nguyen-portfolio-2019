@@ -1,14 +1,10 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 
-import { scroll, viewport, raf, Scroll } from './bidello';
-import bidello, { component } from 'bidello';
-
-import trackable from './kapla/Trackable';
+import { scroll } from './bidello';
+import { component } from 'bidello';
 
 import defaultTransition from './barba/transitions/default';
-
-import { home, blog } from './barba/views';
 
 class TransitionManager extends component() {
     

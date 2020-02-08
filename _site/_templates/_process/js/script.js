@@ -1,11 +1,8 @@
-import settings from './settings';
-import * as helpers from './bidello';
 import renderer from './renderer';
 import camera from './camera';
 import scene from './scene';
 import { component } from 'bidello';
 import { scroll } from './bidello';
-import postfx from './postfx/postfx';
 import assets from './assets';
 import trackable from './kapla/Trackable';
 
