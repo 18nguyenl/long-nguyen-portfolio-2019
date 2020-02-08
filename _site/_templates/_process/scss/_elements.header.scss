@@ -21,6 +21,10 @@
 }
 
 .headings__title {
+  position: relative;
+
+  z-index: 0;
+  
   font-weight: 500;
   
   margin-left: 0;
@@ -31,6 +35,10 @@ $hamburger-height: 3px;
 
 // Default state
 .headings__menu {
+  position: relative;
+
+  z-index: 0;
+
   margin-right: 0;
   padding: 0;
 
@@ -100,5 +108,11 @@ $hamburger-height: 3px;
   }
   &::after {
     transform: rotate(45deg);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #hamburger {
+      display: none;
   }
 }

@@ -20,11 +20,11 @@ class Site extends component() {
     assets.load();
 
     const menuButton = document.getElementById("hamburger__decoration");
-    const navigation = document.getElementById("navigation");
+    const navigation = document.getElementById("mNavigation");
 
     menuButton.addEventListener("click", e => {
       menuButton.classList.toggle("hamburger__menu--exit");
-      navigation.classList.toggle("navigation--visible");
+      navigation.classList.toggle("mNavigation--visible");
     });
 
     document.body.appendChild(renderer.domElement);

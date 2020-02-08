@@ -1,5 +1,9 @@
-.navigation {
+.mNavigation {
     position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: -1;
     
     transform: translateY(-100vh);
 
@@ -11,33 +15,37 @@
     height: 100vh;
     width: 100vw;
     
-    z-index: 999;
-    
     transition: visibility, transform 0.5s, 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-.navigation--visible {
+.mNavigation--visible {
     visibility: visible;
 
     transform: translateY(0);
 }
 
-.navigation__content {
+.mNavigation__content {
     display: flex;
     
     @include padding(0, 1.325, 0, 1.325);
     @include margin(8, 0, 0, 0);
 }
 
-.navigation__links-list {
+.mNavigation__links-list {
     list-style-type: none;
     
     padding: 0;
 }
 
-.navigation__link {
+.mNavigation__link {
     font-weight: 900;
 
     @include font-size(map-get($modular-scale, xxxl));
     line-height: $line-height;
+}
+
+@media only screen and (min-width: 768px) {
+    #mNavigation {
+        display: none;
+    }
 }
