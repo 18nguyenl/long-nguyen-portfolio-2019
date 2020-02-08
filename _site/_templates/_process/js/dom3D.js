@@ -22,11 +22,6 @@ export default class extends component(Object3D) {
       height: rect.height
     };
 
-    // console.log(this.bounds);
-
-    // console.log(`scroll.y = ${scroll.y}`)
-    // console.log(`top = ${rect.top}`)
-
     this.updateSize();
     this.updatePosition();
   }
