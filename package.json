@@ -9,7 +9,7 @@
     "dev:parcel": "parcel watch ./_site/images/* ./_site/_templates/_process/scss/style.scss ./_site/_templates/_process/js/script.js --out-dir dist/assets",
     "build": "run-s prod:*",
     "prod:del": "rimraf build",
-    "prod:parcel": "parcel build ./_site/images/* ./_site/_templates/_process/scss/style.scss ./_site/_templates/_process/js/script.js --out-dir dist/assets",
+    "prod:parcel": "parcel build ./_site/images/* ./_site/_templates/_process/scss/style.scss ./_site/_templates/_process/js/script.js --out-dir build/assets",
     "prod:serve": "ELEVENTY_ENV=production eleventy --output=./build"
   },
   "repository": {
