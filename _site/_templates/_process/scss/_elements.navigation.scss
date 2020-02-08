@@ -44,8 +44,33 @@
     line-height: $line-height;
 }
 
+#dNavigation {
+    display: none;
+
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.dNavigation__links-list {
+    display: flex;
+
+    list-style-type: none;
+    
+    padding: 0;
+}
+
+.dNavigation__link {
+    @include margin(0, 0, 0, 1);
+
+    line-height: $line-height;
+}
+
 @media only screen and (min-width: 768px) {
     #mNavigation {
         display: none;
+    }
+
+    #dNavigation {
+        display: unset;
     }
 }
