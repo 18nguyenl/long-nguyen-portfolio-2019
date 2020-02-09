@@ -24,6 +24,9 @@ export class Scroll {
     //     this.y = 0;
     //     this.ease = 0;
     // }
+    update() {
+        this.scroll.update();
+    }
 
     destroy() {
         this.scroll.destroy();
@@ -65,11 +68,13 @@ export class Scroll {
         this.scroll.update();
 
         this.x = scroll.x;
+        this.delta = scroll.y - this.y;
         this.y = scroll.y;
 
         bidello.trigger({ name: "scroll" }, {
             x: this.x,
             y: this.y,
+            delta: this.delta
         })
     }
     // onScroll(val) {

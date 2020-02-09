@@ -9,8 +9,10 @@ import {
   import scene from '../scene';
   import textures from '../gl/utils/textures';
   import { viewport } from '../bidello';
+
+  import gsap from 'gsap';
   
-  const geometry = new PlaneBufferGeometry(1, 1, 10, 10);
+  const geometry = new PlaneBufferGeometry(1, 1, 20, 20);
   
   const material = new RawShaderMaterial({
     transparent: true,
@@ -31,7 +33,8 @@ import {
         uProgress: { value: 0 },
         uImage: { value: texture },
         uRes: { value: new Vector2(viewport.width, viewport.height) },
-        uImageRes: { value: new Vector2(this.element.width, this.element.height)}
+        uImageRes: { value: new Vector2(this.element.width, this.element.height)},
+        uScrollEffect: { value: 0 }
         // uWind: { value: textures.fromAsset('wind') },
         // uShow: { value: 0 },
         // uClipping: { value: 1.0 }
@@ -47,7 +50,13 @@ import {
   
     onRaf({ delta }) {
       super.onRaf();
-  
+      
       this.material.uniforms.uTime.value += delta * 0.1;
+    }
+
+    onScroll({ delta }) {
+      super.onScroll();
+
+      gsap.to(this.material.uniforms.uScrollEffect, 0.3, { value: delta })
     }
   }
