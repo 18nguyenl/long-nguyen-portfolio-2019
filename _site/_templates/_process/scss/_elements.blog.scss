@@ -1,5 +1,5 @@
 .blogs__title {
-    color: $glitch-blue;
+    margin-top: 0;
 }
 
 .post {
@@ -15,8 +15,12 @@
     line-height: 1.5;
 }
 
+.post__title:first-child {
+    margin-top: 0;
+}
+
 .post__desc {
-    @include font-size(map-get($modular-scale, xxs));
+    @include font-size(map-get($modular-scale, xs));
 }
 
 .post__rTime {
@@ -27,4 +31,10 @@
     display: inline-block;
 
     @include margin(0, 2, 0, 0);
+}
+
+@media only screen and (min-width: 640px) {
+    .post__desc {
+        @include font-size(map-get($modular-scale, xxxs));
+    }
 }

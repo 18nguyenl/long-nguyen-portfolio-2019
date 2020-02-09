@@ -46,7 +46,7 @@ dataNamespace: data-barba-namespace=home
     <article>
         <h1>SELECTED WORKS</h1>
 
-        {%- for work in collections.work -%}
+        {%- for work in collections.work | reverse -%}
         <div class="work">
             <h2 class="work__title">{{work.data.title}}</h2>
         </div>

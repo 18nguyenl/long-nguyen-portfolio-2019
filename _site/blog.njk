@@ -5,9 +5,9 @@ dataNamespace: data-barba-namespace=blog
 
 <section class="blogs blogs__section">
     <article>
-    <h1 class="blogs__title">Blog</h1>
+    <h1 class="blogs__title">THE JOURNEY</h1>
 
-    {%- for post in collections.blog -%}
+    {%- for post in collections.blog | reverse -%}
     <article class="post">
       <h2 class="post__title">{{post.data.title}}</h2>
       <small class="post__desc"><span class="post__date">{{post.date | simpleDate}}</span> <span class="post__rTime">{{post.templateContent | readingTime}} </span></small>
