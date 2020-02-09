@@ -1,10 +1,19 @@
+const { DateTime } = require('luxon');
+const readingTime = require('eleventy-plugin-reading-time');
+
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(readingTime);
+
   eleventyConfig.addPassthroughCopy("./_site/images");
   eleventyConfig.addPassthroughCopy("./_site/admin");
   eleventyConfig.addPassthroughCopy("./_site/documents");
   
   // Because of #677
   eleventyConfig.setUseGitIgnore(false);
+
+  eleventyConfig.addFilter('simpleDate', dateObj => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('LLL dd, yyyy')
+  })
 
   return {
     templateFormats: ["md", "njk", "html"],

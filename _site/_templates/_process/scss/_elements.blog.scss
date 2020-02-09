@@ -1,0 +1,30 @@
+.blogs__title {
+    color: $glitch-blue;
+}
+
+.post {
+    margin: 0;
+
+    width: 100%;
+}
+
+.post__title {
+    color: $glitch-black;
+
+    @include font-size(map-get($modular-scale, l));
+    line-height: 1.5;
+}
+
+.post__desc {
+    @include font-size(map-get($modular-scale, xxs));
+}
+
+.post__rTime {
+    color: $glitch-red;
+}
+
+.post__date {
+    display: inline-block;
+
+    @include margin(0, 2, 0, 0);
+}
