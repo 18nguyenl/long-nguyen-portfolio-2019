@@ -20,7 +20,7 @@ collections:
         - {label: "Tags", name: "tags", widget: "list", default: ['post', 'work']}
         - {label: "Body", name: "body", widget: "markdown"}
     - name: "blog"
-      label: "blog"
+      label: "Blog"
       folder: "_site/posts/blog"
       create: true
       slug: "blog--{{year}}--{{month}}--{{day}}--{{slug}}"
