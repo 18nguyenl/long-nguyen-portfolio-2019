@@ -1,23 +1,22 @@
 .headings__container {
-  position: absolute;
-  
   z-index: 1000;
   
-  width: 100%;
+  width: 80%;
   
   @include margin(1.325, 0, 0, 0);
-  @include padding(0, 1.325, 0, 1.325);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .headings__list {
   list-style: none;
   
-  width: inherit;
-  
   display: flex;
   justify-content: space-between;
   
   padding: 0;
+  
+  margin: 0;
 }
 
 .headings__title {

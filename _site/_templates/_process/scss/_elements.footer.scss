@@ -1,6 +1,7 @@
 footer {
-    padding: 0 4rem;
+    width: 80%;
 
+    margin: auto;
     margin-bottom: 2rem;
 }
 
@@ -19,17 +20,24 @@ footer {
     margin-bottom: 3rem;
 }
 
+.foot__tContainer {
+    width: 80%;
+
+    margin: auto;
+}
+
 @media only screen and (min-width: 425px) {
     footer {
         display: flex;
         flex-flow: column wrap;
 
-        padding: 0 8%;
-    
         margin-bottom: 3rem;
     }
     
     .footer__text {
+        position: relative;
+        left: 10vw;
+
         font-size: 14vw;
     
         margin-bottom: 5rem;
