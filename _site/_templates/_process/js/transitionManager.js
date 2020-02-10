@@ -22,6 +22,7 @@ class TransitionManager extends component() {
         this.barba = barba.init({
             debug: true,
             transitions: [defaultTransition],
+            smoothMobile: true,
         })
 
         console.log("Transition Manager loaded");
