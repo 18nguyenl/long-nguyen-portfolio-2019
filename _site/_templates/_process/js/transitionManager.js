@@ -13,17 +13,17 @@ class TransitionManager extends component() {
 
         barba.hooks.after((data) => {
             scroll.init();
-        })
+        });
 
         barba.hooks.before((data) => {
             scroll.destroy();
-        })
+        });
 
         this.barba = barba.init({
             debug: true,
             transitions: [defaultTransition],
             smoothMobile: true,
-        })
+        });
 
         console.log("Transition Manager loaded");
     }
