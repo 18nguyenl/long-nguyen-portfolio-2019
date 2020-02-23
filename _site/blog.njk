@@ -1,15 +1,18 @@
 ---
 layout: layouts/base.njk
 dataNamespace: data-barba-namespace=blog
+pagination:
+  data: collections.blog
+  size: 10
 ---
 
 <section class="blogs blogs__section">
     <article>
     <h1 class="blogs__title">THE JOURNEY</h1>
 
-    {%- for post in collections.blog | reverse -%}
+    {%- for post in pagination.items | reverse -%}
     <article class="post">
-      <h2 class="post__title">{{post.data.title}}</h2>
+      <h2 class="post__title"><a href="{{ post.url | url }}">{{post.data.title}}</a></h2>
       <small class="post__desc"><span class="post__date">{{post.date | simpleDate}}</span> <span class="post__rTime">{{post.templateContent | readingTime}} </span></small>
     </article>
     {%- endfor -%}
