@@ -6,6 +6,8 @@ import { scroll } from './bidello';
 import assets from './assets';
 import trackable from './kapla/Trackable';
 
+import isMobile from './utils/touchscreen'; 
+
 import { Application } from 'kapla';
 
 import TransitionManager from './transitionManager';
@@ -27,7 +29,9 @@ class Site extends component() {
       navigation.classList.toggle("mNavigation--visible");
     });
 
-    document.body.appendChild(renderer.domElement);
+    if (!isMobile()) {
+      document.body.appendChild(renderer.domElement);
+    }
   }
   
   onRaf() {
@@ -37,9 +41,11 @@ class Site extends component() {
 
   onLoadEnd() {
     scroll.init();
-
-    this.app = Application.start();
-    this.app.register("trackable", trackable);
+    
+    if (!isMobile()) {
+      this.app = Application.start();
+      this.app.register("trackable", trackable);
+    }
     this.transitionManager = new TransitionManager();
 
     console.log('finished loader!');

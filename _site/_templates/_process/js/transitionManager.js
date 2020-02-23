@@ -7,7 +7,6 @@ import { component } from 'bidello';
 import defaultTransition from './barba/transitions/default';
 
 class TransitionManager extends component() {
-    
     init() {
         barba.use(barbaPrefetch);
 
@@ -22,7 +21,6 @@ class TransitionManager extends component() {
         this.barba = barba.init({
             debug: true,
             transitions: [defaultTransition],
-            smoothMobile: true,
         });
 
         console.log("Transition Manager loaded");

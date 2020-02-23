@@ -54,7 +54,6 @@ export class Scroll {
         this.scroll = new LocomotiveScroll({
             el: this.scrollContainer,
             smooth: true,
-            smoothMobile: true
         })
 
         this.scroll.update();
