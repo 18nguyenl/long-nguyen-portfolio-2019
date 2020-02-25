@@ -20,6 +20,12 @@ class Site extends component() {
     }
 
     assets.load();
+    
+    document.querySelectorAll('a').forEach((ele) => {
+      ele.addEventListener("click", (e) => {
+      e.preventDefault();
+      });
+    });
 
     const menuButton = document.getElementById("hamburger__decoration");
     const navigation = document.getElementById("mNavigation");

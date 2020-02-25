@@ -19,6 +19,7 @@ class TransitionManager extends component() {
         });
 
         this.barba = barba.init({
+            preventRunning: true,
             debug: true,
             transitions: [defaultTransition],
         });
