@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/post.njk
 title: Plano Kendo Dojo
 date: 2020-02-05T01:35:17.998Z
 thumbnail: /images/uploads/image.jpg
