@@ -1,6 +1,7 @@
 import { Loader } from 'resource-loader';
 import bidello from 'bidello';
 import deferred from './utils/deferred';
+import gsap from 'gsap';
 
 import textures from './gl/utils/textures';
 
@@ -33,6 +34,7 @@ class Assets {
     this.resources = {};
     this.preloadDOM = document.querySelector(".preload");
     this.preloadDOMText = document.querySelector(".preload__text");
+    this.preloadTimeline = new gsap.timeline({paused: true});
 
     RESOURCES.forEach(entry => {
       this.resources[entry.name] = entry;
@@ -64,8 +66,9 @@ class Assets {
   onProgress(loader, meta) {
     bidello.trigger({ name: 'loadProgress' }, { progress: this.loader.progress });
 
-    this.preloadDOMText.textContent = this.loader.progress.toFixed(2);
+    this.preloadTimeline.to(this.preloadDOMText, 1, { textContent: this.loader.progress.toFixed(2), roundProps: "textContent"});
 
+    // this.preloadDOMText.textContent = this.loader.progress.toFixed(2);
     const res = this.resources[meta.name];
     res.meta = meta;
     res.loading.resolve(res);
@@ -74,11 +77,9 @@ class Assets {
   finish() {
     this.deferred.resolve();
 
-    this.preloadDOM.classList.add("preload__done");
+    this.preloadTimeline.play();
 
-    window.addEventListener("load", () => {
-      bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
-    })
+    bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
   }
 }
 

@@ -20,12 +20,6 @@ class Site extends component() {
     }
 
     assets.load();
-    
-    document.querySelectorAll('a').forEach((ele) => {
-      ele.addEventListener("click", (e) => {
-      e.preventDefault();
-      });
-    });
 
     const menuButton = document.getElementById("hamburger__decoration");
     const navigation = document.getElementById("mNavigation");
@@ -37,6 +31,12 @@ class Site extends component() {
 
     if (!isMobile()) {
       document.body.appendChild(renderer.domElement);
+
+      document.querySelectorAll('a').forEach((ele) => {
+        ele.addEventListener("click", (e) => {
+        e.preventDefault();
+        });
+      });
     }
   }
   
@@ -47,7 +47,7 @@ class Site extends component() {
 
   onLoadEnd() {
     scroll.init();
-    
+
     if (!isMobile()) {
       this.app = Application.start();
       this.app.register("trackable", trackable);
