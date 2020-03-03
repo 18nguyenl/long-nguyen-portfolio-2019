@@ -66,7 +66,11 @@ class Assets {
   onProgress(loader, meta) {
     bidello.trigger({ name: 'loadProgress' }, { progress: this.loader.progress });
 
-    this.preloadTimeline.to(this.preloadDOMText, 1, { textContent: this.loader.progress.toFixed(2), roundProps: "textContent"});
+    let anim = gsap.to(this.preloadDOMText, 1, { textContent: this.loader.progress.toFixed(2), roundProps: "textContent"});
+
+    if (this.loader.progress >= 100) {
+      anim.then(() => this.preloadDOM.classList.add("preload__done"));
+    }
 
     // this.preloadDOMText.textContent = this.loader.progress.toFixed(2);
     const res = this.resources[meta.name];
@@ -78,6 +82,7 @@ class Assets {
     this.deferred.resolve();
 
     this.preloadTimeline.play();
+
 
     bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
   }
