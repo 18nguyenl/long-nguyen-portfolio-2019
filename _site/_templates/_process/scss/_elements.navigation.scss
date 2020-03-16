@@ -49,6 +49,11 @@
 
     margin-right: 0;
     margin-left: auto;
+    margin-bottom: 0;
+}
+
+.dNavigation__content {
+    margin-bottom: 0;
 }
 
 .dNavigation__links-list {
@@ -57,6 +62,8 @@
     list-style-type: none;
     
     padding: 0;
+
+    margin-bottom: 0;
 }
 
 .dNavigation__link {
