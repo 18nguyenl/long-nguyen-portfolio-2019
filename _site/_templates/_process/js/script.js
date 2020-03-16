@@ -31,6 +31,7 @@ class Site extends component() {
 
     if (!isMobile()) {
       document.body.appendChild(renderer.domElement);
+      document.body.style.overflow = "hidden";
 
       document.querySelectorAll('a').forEach((ele) => {
         ele.addEventListener("click", (e) => {
