@@ -32,9 +32,6 @@ assets.resources.photo.loading.then(res => {
 class Assets {
   constructor() {
     this.resources = {};
-    this.preloadDOM = document.querySelector(".preload");
-    this.preloadDOMText = document.querySelector(".preload__text");
-    this.preloadTimeline = new gsap.timeline({paused: true});
 
     RESOURCES.forEach(entry => {
       this.resources[entry.name] = entry;
@@ -66,15 +63,6 @@ class Assets {
   onProgress(loader, meta) {
     bidello.trigger({ name: 'loadProgress' }, { progress: this.loader.progress });
 
-    gsap.killTweensOf(this.preloadDOMText);
-    gsap.to(this.preloadDOMText, 1, { textContent: this.loader.progress.toFixed(2), roundProps: "textContent"}).then(() => {
-      if (this.loader.progress >= 100) {
-        // anim.then(() => this.preloadDOM.classList.add("preload__done"));
-        this.preloadDOM.classList.add("preload__done");
-      }
-    });
-
-    // this.preloadDOMText.textContent = this.loader.progress.toFixed(2);
     const res = this.resources[meta.name];
     res.meta = meta;
     res.loading.resolve(res);

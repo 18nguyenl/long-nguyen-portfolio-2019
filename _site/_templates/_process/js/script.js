@@ -11,6 +11,7 @@ import isMobile from './utils/touchscreen';
 import { Application } from 'kapla';
 
 import TransitionManager from './transitionManager';
+import preloader from './preload';
 
 class Site extends component() {
   init() {
