@@ -78,6 +78,10 @@
         font-size: 96px;
         line-height: 96px;
     }
+
+    .cover__plane > img {
+        object-fit: contain;
+    }
 }
 
 @media screen and (min-width: 1024px) {

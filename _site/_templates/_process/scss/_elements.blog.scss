@@ -46,3 +46,11 @@
         @include font-size(map-get($modular-scale, xxxs));
     }
 }
+
+@media only screen and (min-width: 1024px) {
+    .blogs__title {
+        font-size: 1rem * 3.375;
+
+        margin-bottom: 56px;
+    }
+}

@@ -119,3 +119,9 @@ $hamburger-height: 3px;
       display: none;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  .headings__container {
+    margin-bottom: 56px;
+  }
+}
