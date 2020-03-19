@@ -14,6 +14,22 @@
     color: $glitch-black;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: $glitch-black;
+}
+
+a:hover {
+    color: $glitch-blue;
+}
+
+a:visited:hover {
+    color: $glitch-blue;
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 425px) {
     p {
         font-size: 16px;
