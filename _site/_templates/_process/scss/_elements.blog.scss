@@ -1,17 +1,25 @@
 .blogs__title {
     margin-top: 0;
+
+    color: $glitch-blue;
+    
+    font-size: 1rem * 1.5;
 }
 
 .post {
     margin: 0;
+    margin-bottom: 1rem * 2.25;
 
     width: 100%;
 }
 
 .post__title {
     color: $glitch-black;
+    text-transform: uppercase;
 
-    @include font-size(map-get($modular-scale, l));
+    margin-bottom: 0;
+
+    font-size: 1rem * 2.25;
     line-height: 1.5;
 }
 
@@ -20,7 +28,7 @@
 }
 
 .post__desc {
-    @include font-size(map-get($modular-scale, xs));
+    @include font-size(map-get($modular-scale, xxxs));
 }
 
 .post__rTime {

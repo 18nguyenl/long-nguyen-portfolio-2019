@@ -7,6 +7,10 @@ html, #js-scroll, main {
     position: relative;
 }
 
+body {
+    background: $glitch-white;
+}
+
 .has-scroll-smooth {
     overflow: hidden;
 }
