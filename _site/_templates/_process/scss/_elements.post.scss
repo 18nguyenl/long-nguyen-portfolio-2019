@@ -5,9 +5,16 @@
 
         color: $glitch-black;
 
-        font-size: 1rem * 3.375; 
+        font-size: 1rem * 3.375;
+        text-transform: uppercase;
 
         line-height: 1;
+    }
+
+    img {
+        width: 100%;
+
+        object-fit: cover;
     }
 
     .post__desc {
@@ -17,6 +24,8 @@
     }
 
     h2 {
+        text-transform: uppercase;
+
         color: $glitch-black;
     }
 
