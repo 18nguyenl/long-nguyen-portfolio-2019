@@ -1,4 +1,4 @@
-.work__title {
+.work__title > a {
     color: transparent;
 
     font-size: 27.01px;
@@ -20,13 +20,13 @@
 }
 
 @media only screen and (min-width: 425px) {
-    .work__title {
+    .work__title > a{
         font-size: 9vw;
     }
 }
 
 @media only screen and (min-width: 1024px) {
-    .work__title {
+    .work__title > a {
         font-size: 91.12px;
     }
 

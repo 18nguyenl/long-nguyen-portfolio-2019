@@ -48,7 +48,7 @@ dataNamespace: data-barba-namespace=home
 
         {%- for work in collections.work | reverse -%}
         <div class="work">
-            <h2 class="work__title">{{work.data.title}}</h2>
+            <h2 class="work__title"><a href={{work.url}}>{{work.data.title}}</a></h2>
         </div>
         {%- endfor -%}
     </article>
