@@ -10,6 +10,7 @@ import isMobile from './utils/touchscreen';
 
 import { Application } from 'kapla';
 
+import load from './load';
 import TransitionManager from './transitionManager';
 import preloader from './preload';
 
@@ -22,23 +23,8 @@ class Site extends component() {
 
     assets.load();
 
-    const menuButton = document.getElementById("hamburger__decoration");
-    const navigation = document.getElementById("mNavigation");
-
-    menuButton.addEventListener("click", e => {
-      menuButton.classList.toggle("hamburger__menu--exit");
-      navigation.classList.toggle("mNavigation--visible");
-    });
-
     if (!isMobile()) {
       document.body.appendChild(renderer.domElement);
-      document.body.style.overflow = "hidden";
-
-      document.querySelectorAll('a').forEach((ele) => {
-        ele.addEventListener("click", (e) => {
-        e.preventDefault();
-        });
-      });
     }
   }
   

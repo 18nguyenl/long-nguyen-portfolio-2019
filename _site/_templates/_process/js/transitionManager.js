@@ -5,6 +5,7 @@ import { scroll } from './bidello';
 import { component } from 'bidello';
 
 import defaultTransition from './barba/transitions/default';
+import hamburgerButton from './hamburgerButton';
 
 class TransitionManager extends component() {
     init() {
@@ -16,6 +17,8 @@ class TransitionManager extends component() {
 
         barba.hooks.before((data) => {
             scroll.destroy();
+
+            hamburgerButton.close();
         });
 
         this.barba = barba.init({
