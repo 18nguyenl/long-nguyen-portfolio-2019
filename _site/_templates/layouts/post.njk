@@ -5,8 +5,8 @@ dataNamespace: data-barba-namespace=post
 
 <article>
     <h1>{{ title }}</h1>
-    <small class="post__desc"><span class="post__date">{{ date | simpleDate }}</span> <span class="post__rTime">{{ content | readingTime }} </span></small>
-    <img src="{{ thumbnail }}"/> 
+    <small class="post__desc"><span class="post__date">{{ date | simpleDate }}</span> <span class="post__rTime">{{ content | readingTime }}</span></small>
+    <img src="{{ thumbnail }}"/>
 
     {{ content | safe }}
 </article>

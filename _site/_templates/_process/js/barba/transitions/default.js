@@ -9,22 +9,6 @@ import dom from '../../gl/dom';
 export default {
     name: 'default-transition',
 
-    from: {
-        namespace: [
-            'home',
-            'blog',
-            'post',
-        ]
-    },
-
-    to: {
-        namespace: [
-            'home',
-            'blog',
-            'post',
-        ]
-    },
-
     leave({ current }) {
         const done = this.async();
         const { container, namespace } = current;
