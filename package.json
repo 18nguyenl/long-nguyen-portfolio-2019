@@ -71,7 +71,7 @@
     "rimraf": "^3.0.1",
     "sass": "^1.25.0",
     "smooth-scrolling": "^2.3.12",
-    "three": "^0.113.2",
+    "three": "^0.125.0",
     "webpack-merge": "^4.2.2"
   }
 }
